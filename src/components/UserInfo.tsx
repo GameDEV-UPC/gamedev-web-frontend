@@ -1,8 +1,12 @@
+// src/components/UserInfo.tsx
+
 import React from "react";
+import UserCard from "./UserCard";
 
 type User = {
   name: string;
   score: number;
+  profilePicture: string; // Assuming you want to pass the profile picture URL
 };
 
 const UserInfo = ({ users }: { users: User[] }) => {
@@ -12,15 +16,12 @@ const UserInfo = ({ users }: { users: User[] }) => {
       <ol>
         {users.map((user, index) => (
           <li key={index} className="leaderboard-card">
-            {/* Avatar */}
-            <div className="leaderboard-avatar">{index + 1}</div>
-            {/* Información */}
-            <div className="leaderboard-info">
-              <h3>{user.name}</h3>
-              <p>Rank #{index + 1}</p>
-            </div>
-            {/* Puntaje */}
-            <div className="leaderboard-score">{user.score}</div>
+            {/* Render UserCard for each user */}
+            <UserCard
+              username={user.name}
+              score={user.score}
+              profilePicture={user.profilePicture}
+            />
           </li>
         ))}
       </ol>
