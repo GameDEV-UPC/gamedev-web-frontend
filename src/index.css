@@ -1,0 +1,31 @@
+:root{
+  --color-text: #ffffff; /* Texto blanco */
+  --color-primary:  #4290f5;
+  --main-font: Dosis-Light;
+}
+@font-face {
+  font-family: 'Orbitron-Regular';
+  src: url('./assets/fonts/Orbitron/static/Orbitron-Regular.ttf') format('opentype');
+  font-weight: 400; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Orbitron-Medium';
+  src: url('./assets/fonts/Orbitron/static/Orbitron-Medium.ttf') format('opentype');
+  font-weight: 400; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dosis-Regular';
+  src: url('./assets/fonts/Dosis/static/Dosis-Regular.ttf') format('opentype');
+  font-weight: 400; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dosis-Light';
+  src: url('./assets/fonts/Dosis/static/Dosis-Light.ttf') format('opentype');
+  font-weight: 400; 
+  font-style: normal;
+}
+

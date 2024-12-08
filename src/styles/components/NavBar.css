@@ -1,0 +1,101 @@
+
+.main-container {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #1f1f1f;
+    gap: 80px; /* Separa más el logo de los enlaces */
+    padding: 0px 10px; /* Espaciado adecuado */
+    width: 100%; /* Abarca todo el ancho */
+    position: fixed; /* Navbar fijo en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Logo */
+.img {
+    aspect-ratio: 1.06;
+    object-fit: contain;
+    object-position: center;
+    width: 150px; /* Reducido */
+    max-width: 300px;
+    height: 50px;
+}
+
+/* Contenedor del navbar */
+.nav-container {
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center; /* Alinea los enlaces verticalmente */
+    border-radius: 36px;
+    border: 5px light #4290f5;
+    background-color: #2a3843;
+    gap: 30px; /* Mayor separación entre enlaces */
+    padding: 8px 20px; /* Reducido */
+    position: relative;
+    margin-right: 30px;
+}
+
+/* Enlaces */
+.link {
+    color: var(--color-text);
+    text-align: center;
+    letter-spacing: 0.32px;
+    font: 500 10px var(--main-font), sans-serif; /* Tamaño de fuente reducido */
+    text-decoration: none; /* Elimina subrayado predeterminado */
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+  
+    /* Transición suave */
+    transition: color 0.5s ease-in-out;
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+.link:hover {
+    color: #4290f5; /* Cambia color */
+
+}
+
+/* Estilo para el subrayado animado */
+.underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 0; /* Inicialmente sin ancho */
+    background-color: #4290f5;
+    transition: width 1s ease, left 1s ease; /* Transiciones suaves */
+}
+
+/* Responsive: Ajusta paddings en dispositivos pequeños */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 8px 20px; /* Ajustado para dispositivos pequeños */
+        gap: 10px; /* Reducido gap */
+
+    }
+
+    /* Reducir tamaño de logo y márgenes */
+    .img {
+        width: 80px; /* Más pequeño en pantallas pequeñas */
+    }
+
+    .nav-container {
+        gap: 15px; /* Reducir el espaciado entre los enlaces */
+        padding: 6px 8px;
+    }
+
+    .link {
+        font: 500 8px var(--main-font); /* Tamaño de fuente reducido */
+    }
+
+    /* Opcional: Poner los enlaces en columna si la pantalla es muy pequeña */
+    .nav-container {
+        /* Disposición vertical de los enlaces */
+        gap: 10px; /* Espaciado entre los enlaces */
+    }
+}
