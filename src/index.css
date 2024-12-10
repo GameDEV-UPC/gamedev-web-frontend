@@ -1,12 +1,13 @@
 :root{
   --color-text: #ffffff; /* Texto blanco */
+  --background-color: #232425;
   --color-primary:  #4290f5;
-  --main-font: Dosis-Light;
+  --main-font: Orbitron-Regular;
 }
 @font-face {
   font-family: 'Orbitron-Regular';
   src: url('./assets/fonts/Orbitron/static/Orbitron-Regular.ttf') format('opentype');
-  font-weight: 400; 
+  font-weight: 00; 
   font-style: normal;
 }
 @font-face {

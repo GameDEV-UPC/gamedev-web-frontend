@@ -1,5 +1,5 @@
 import React from "react";
-import UserInfo from "../components/UserInfo";
+import Leaderboard from "../components/Leaderboard";
 
 function Home() {
   const users = [
@@ -12,8 +12,7 @@ function Home() {
 
   return (
     <div>
-      <h1>GameDev Leaderboard</h1>
-      <UserInfo users={users} />
+      <Leaderboard users={users} />
     </div>
   );
 }

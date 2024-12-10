@@ -8,7 +8,7 @@
     padding: 15px;
     margin: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    max-width: 100%;
   }
   
   .user-card__img {
@@ -21,18 +21,19 @@
   
   .user-card__info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 40px;
   }
   
   .user-card__username {
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
   }
   
   .user-card__score {
     color: #ccc;
-    font-size: 14px;
+    font-size: 20px;
     margin: 0;
   }
   

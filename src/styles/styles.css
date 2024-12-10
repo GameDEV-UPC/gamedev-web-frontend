@@ -1,3 +1,131 @@
 body{
-    padding-top: 50px;
+    padding-top: 7%;
+
 }
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px; /* Makes it easier to use rem units */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  }
+  
+  body {
+    padding-top: 100px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    background-color: var(--background-color); /* Background color of the entire page */
+    color:var(--text-color); /* Default text color */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #ffffff; /* White color for all headings */
+  }
+  
+  p {
+    margin-bottom: 1rem; /* Adds space between paragraphs */
+    color: #b0b0b0; /* Slightly lighter color for paragraph text */
+  }
+  
+  a {
+    color: #4290f5; /* Global link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #1f75fe; /* Slightly brighter blue on hover */
+  }
+  
+  ul, ol {
+    padding-left: 1.5rem; /* Adds space for list items */
+  }
+  
+  button {
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  input, textarea, button {
+    font-family: inherit;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .main-content {
+    margin-top: 100px; /* Leaves space for the navbar */
+    padding: 20px;
+  }
+  
+  hr {
+    border: 0;
+    height: 1px;
+    background: #3c3c3c;
+    margin: 2rem 0;
+  }
+  
+  ::selection {
+    background-color: #4290f5;
+    color: #fff;
+  }
+  
+  /* Scrollbar customization */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2a3843;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #4290f5;
+    border-radius: 4px;
+    border: 2px solid #2a3843;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px; /* Smaller font size on smaller screens */
+    }
+  
+    .main-content {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    html {
+      font-size: 12px; /* Even smaller font size on mobile devices */
+    }
+  
+    .main-content {
+      padding: 5px;
+    }
+  }
+  
