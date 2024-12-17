@@ -1,74 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom"; // Importar Link y useLocation
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Mantenemos useLocation
 import "../styles/components/NavBar.css";
+import NoiseButton from "./NoiseButton.tsx";
 
 function NavBar() {
-  const [activeLink, setActiveLink] = useState<number>(0); // Estado para mantener el enlace activo
-  const underlineRef = useRef<HTMLDivElement>(null);
-  const location = useLocation(); // Detecta la URL actual
+    const [activeLink, setActiveLink] = useState<number>(1);
+    const location = useLocation();
 
-  // Detectar qué enlace debe estar activo según la URL
-  useEffect(() => {
-    const path = location.pathname;
-    if (path === '/') setActiveLink(0);
-    if (path === '/mystats') setActiveLink(1);
-    if (path === '/about') setActiveLink(2);
-  }, [location.pathname]);
+    const options = [
+        { value: "1", label: "My Stats", path: "/mystats" }, // Agregar path
+        { value: "2", label: "Home", path: "/" ,}, // Agregar path
+        { value: "3", label: "About", path: "/about" } // Agregar path
+    ];
 
-  // Función para ajustar el subrayado de acuerdo al tamaño de la ventana
-  const adjustUnderline = () => {
-    const underline = underlineRef.current;
-    const activeLinkElement = document.querySelectorAll(".link")[activeLink] as HTMLAnchorElement;
+    useEffect(() => {
+        const path = location.pathname;
+        if (path === '/') setActiveLink(0);
+        if (path === '/mystats') setActiveLink(1);
+        if (path === '/about') setActiveLink(2);
+    }, [location.pathname]);
 
-    if (underline && activeLinkElement) {
-      underline.style.width = `${activeLinkElement.offsetWidth}px`;
-      underline.style.left = `${activeLinkElement.offsetLeft}px`;
-    }
-  };
+    return (
+        <header className="main-container">
+            {/* Agregar el logo   <img
+                loading="lazy"
+                src="./src/assets/images/logogmail.png"
+                alt="Logo"
+                className="img"
+            /> */}
 
-  // Se ejecuta cuando el componente se monta y cada vez que se redimensiona la ventana
-  useEffect(() => {
-    adjustUnderline(); // Ajuste inicial
-    window.addEventListener("resize", adjustUnderline); // Ajuste cuando se redimensiona
-
-    return () => {
-      window.removeEventListener("resize", adjustUnderline); // Limpiar evento
-    };
-  }, [activeLink]); // Dependencia de activeLink para ajustar el subrayado cada vez que cambia
-
-  return (
-    <header className="main-container">
-      {/* Imagen del logo */}
-      <img
-        loading="lazy"
-        src="./src/assets/images/logogmail.png"
-        alt="Logo"
-        className="img"
-      />
-      {/* Navegación */}
-      <nav className="nav-container">
-        <Link
-          to="/"
-          className={`link ${activeLink === 0 ? "active" : ""}`}
-        >
-          HOME
-        </Link>
-        <Link
-          to="/mystats"
-          className={`link ${activeLink === 1 ? "active" : ""}`}
-        >
-          MY STATS
-        </Link>
-        <Link
-          to="/about"
-          className={`link ${activeLink === 2 ? "active" : ""}`}
-        >
-          ABOUT US
-        </Link>
-        <div className="underline" ref={underlineRef}></div>
-      </nav>
-    </header>
-  );
+            <nav className="nav-container">
+                <NoiseButton options={options} />
+            </nav>
+        </header>
+    );
 };
 
 export default NavBar;

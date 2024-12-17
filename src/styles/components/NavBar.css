@@ -30,7 +30,7 @@
     align-items: center;
     border-radius: 36px;
     border: 5px light #4290f5;
-    background-color: #2a3843;
+    background-color: rgba(42, 56, 67, 0);
     gap: 30px; /* Espaciado entre enlaces */
     padding: 8px 20px;
     position: relative;
