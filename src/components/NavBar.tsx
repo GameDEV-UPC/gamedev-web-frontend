@@ -22,12 +22,12 @@ function NavBar() {
 
     return (
         <header className="main-container">
-            {/* Agregar el logo   <img
+             <img
                 loading="lazy"
-                src="./src/assets/images/logogmail.png"
+                src="./src/assets/images/l.png"
                 alt="Logo"
                 className="img"
-            /> */}
+            />
 
             <nav className="nav-container">
                 <NoiseButton options={options} />

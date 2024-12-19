@@ -2,9 +2,17 @@
 
 
 .container {
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
+    gap: 10px;
+    margin: auto;
+    max-width: 500px;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+
 }
 
 .radio-btn-group {

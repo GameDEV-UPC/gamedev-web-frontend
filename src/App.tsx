@@ -22,13 +22,13 @@ const NavbarAndRoutes: React.FC = () => {
     return (
         <>
             {/* Mostrar el Navbar solo si no estamos en '/login' o '/sign-in' */}
-            {location !== '/login' && location !== '/sign-in' && <Navbar />}
+            {location !== '/login' && location !== '/signin' && <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} /> {/* Ruta para la página de inicio */}
                 <Route path="/mystats" element={<MyStats />} /> {/* Ruta para la página de estadísticas */}
                 <Route path="/about" element={<About />} /> {/* Ruta para la página "About Us" */}
                 <Route path="/login" element={<Login />} />  {/* Ruta para la página de login */}
-                <Route path="/sign-in" element={<SignIn />} />  {/* Ruta para la página de signin */}
+                <Route path="/signin" element={<SignIn />} />  {/* Ruta para la página de signin */}
             </Routes>
         </>
     );
