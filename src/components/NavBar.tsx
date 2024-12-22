@@ -22,12 +22,7 @@ function NavBar() {
 
     return (
         <header className="main-container">
-             <img
-                loading="lazy"
-                src="./src/assets/images/l.png"
-                alt="Logo"
-                className="img"
-            />
+            <h1 className="logo">GameDev</h1>
 
             <nav className="nav-container">
                 <NoiseButton options={options} />

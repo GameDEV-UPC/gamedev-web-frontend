@@ -10,22 +10,14 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    height: 70px;
 }
 
-/* Contenedor de la imagen */
-.image-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
-.img {
-    aspect-ratio: 1.06;
-    object-fit: contain;
-    object-position: left;
-    width: 20%;
-    max-width: 120px;
-    height: 50px;
+.logo {
+    width: 0px;
+    height: 100%;
+    padding-top: 10px;
 }
 
 /* Contenedor de los radio buttons */
@@ -36,102 +28,22 @@
     flex: 1; /* Toma todo el espacio restante entre la imagen y el final de la barra */
 }
 
-.radio-btn-group {
-    margin: 10px;
-    position: relative;
-}
-
-input[type="radio"] {
-    opacity: 0;
-    position: absolute;
-}
-
-input[type="radio"]:checked + label {
-    &::before {
-        box-shadow: 0 0 25px 2px #0763f7;
-    }
-
-    span {
-        color: #c40a35;
-    }
-}
-
-label {
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-family: var(--main-font), sans-serif;
-    height: 50px;
-    padding: 0 30px;
-    position: relative;
-
-    &::before {
-        background-color: #24252c;
-        border-radius: 10px;
-        content: "";
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: skew(-15deg);
-        transition: box-shadow 700ms;
-        width: 100%;
-        z-index: -1;
-    }
-
-    span {
-        transition: color 350ms;
-        z-index: 1;
-    }
-
-    svg {
-        border-radius: 10px;
-        overflow: hidden;
-        position: absolute;
-        transform: skew(-15deg);
-        width: 100%;
-        height: 100%;
-    }
-
-    .blue rect {
-        fill: #76b3fa;
-        mix-blend-mode: plus-lighter;
-    }
-
-    .pink rect {
-        fill: #ff6bd3;
-    }
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
-    margin: auto;
-    max-width: 500px;
-    padding: 20px;
-    position: absolute;
-    width: 100%;
-}
-
+/* Responsive */
 @media (max-width: 768px) {
     .main-container {
-        flex-direction: column;
-        padding: 5px;
-        gap: 0px;
+        display: flex;
+        flex-direction: column; /* Cambiar a diseño vertical */
+        align-items: center; /* Centrar contenido */
+        height: auto; /* Permitir altura dinámica */
+        gap: 10px; /* Reducir espacio entre logo y navbar */
     }
 
-    .img {
-        width: 100%;
-        max-width: 150px;
+    .logo {
+        width: 100px; /* Ajustar tamaño del logo en móviles */
     }
 
     .nav-container {
-        gap: 15px;
+        width: 100%; /* Asegurar que el navbar ocupe todo el ancho */
+        padding: 10px 0; /* Añadir espacio vertical */
     }
 }
