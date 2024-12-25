@@ -7,6 +7,7 @@ import About from './pages/About';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';  // Asegúrate de tener la ruta para SignIn
 import './styles/styles.css';
+import Presentation from "./pages/Presentation.tsx";
 
 function App() {
     return (
@@ -22,9 +23,10 @@ const NavbarAndRoutes: React.FC = () => {
     return (
         <>
             {/* Mostrar el Navbar solo si no estamos en '/login' o '/sign-in' */}
-            {location !== '/login' && location !== '/signin' && <Navbar />}
+            {location !== '/login' && location !== '/signin'  && location !== '/' && <Navbar /> }
             <Routes>
-                <Route path="/" element={<Home />} /> {/* Ruta para la página de inicio */}
+                <Route path="/" element={<Presentation />} />
+                <Route path="/home" element={<Home />} /> {/* Ruta para la página de inicio */}
                 <Route path="/mystats" element={<MyStats />} /> {/* Ruta para la página de estadísticas */}
                 <Route path="/about" element={<About />} /> {/* Ruta para la página "About Us" */}
                 <Route path="/login" element={<Login />} />  {/* Ruta para la página de login */}

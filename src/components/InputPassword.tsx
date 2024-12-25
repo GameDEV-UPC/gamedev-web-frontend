@@ -100,7 +100,7 @@ function InputPassword() {
                         onClick={handleClick}  // Agregamos evento de clic para seleccionar el texto
                     />
                 </li>
-                <button
+                <button className={`show-hide ${isAnimating ? "disabled" : ""}`}
                     onClick={() => setHide((prev) => !prev)}
                     disabled={isAnimating}
                     style={{ marginLeft: "10px" }}

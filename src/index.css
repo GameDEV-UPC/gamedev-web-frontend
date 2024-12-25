@@ -1,7 +1,8 @@
 :root{
   --color-text: #ffffff; /* Texto blanco */
   --background-color: #232425;
-  --color-primary:  #4290f5;
+  --color-primary:  blue;
+    --color-secondary: #000e80;
   --main-font: Orbitron-Regular;
 }
 @font-face {

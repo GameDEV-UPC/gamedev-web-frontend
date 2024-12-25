@@ -3,7 +3,7 @@
     display: flex;
     align-items: center; /* Alinea verticalmente la imagen y el grupo de botones */
     background-color: #1f1f1f;
-    gap: 40px; /* Espaciado entre el logo y la sección de los botones */
+    gap: 0px; /* Espaciado entre el logo y la sección de los botones */
     padding: 0 20px;
     width: 100%;
     position: fixed;
@@ -12,7 +12,6 @@
     z-index: 1000;
     height: 70px;
 }
-
 
 .logo {
     width: 0px;
@@ -26,6 +25,31 @@
     justify-content: center; /* Esto centra el grupo de botones */
     align-items: center;
     flex: 1; /* Toma todo el espacio restante entre la imagen y el final de la barra */
+
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Hace que sea circular */
+    object-fit: cover;
+    cursor: pointer; /* Indica que es interactivo */
+}
+
+.lg-button {
+    width: 100px;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+}
+
+.lg-button:hover {
+    background-color: #00ff00;
+    transition: background-color 2s;
 }
 
 /* Responsive */
@@ -34,7 +58,7 @@
         display: flex;
         flex-direction: column; /* Cambiar a diseño vertical */
         align-items: center; /* Centrar contenido */
-        height: auto; /* Permitir altura dinámica */
+        height: 140px; /* Permitir altura dinámica */
         gap: 10px; /* Reducir espacio entre logo y navbar */
     }
 
@@ -46,4 +70,17 @@
         width: 100%; /* Asegurar que el navbar ocupe todo el ancho */
         padding: 10px 0; /* Añadir espacio vertical */
     }
+
+    .profile-container {
+        position: relative; /* Cambiar posición para que esté en el flujo del layout */
+        width: 100%;
+        justify-content: center; /* Centrar contenido */
+        padding: 10px 100px; /* Espaciado adicional */
+        align-items: center;
+    }
+    .lg-button {
+       width: 100px  ;
+        top: 10px;
+    }
+
 }

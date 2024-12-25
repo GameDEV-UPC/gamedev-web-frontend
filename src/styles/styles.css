@@ -1,7 +1,4 @@
-body{
-    padding-top: 7%;
 
-}
 /* Reset some default browser styles */
 * {
     margin: 0;
@@ -48,16 +45,8 @@ body{
     padding-left: 1.5rem; /* Adds space for list items */
   }
 
-  button {
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    border: none;
-    outline: none;
-  }
 
-  button:hover {
-    opacity: 0.9;
-  }
+
 
   img {
     max-width: 100%;
@@ -117,11 +106,17 @@ body{
     .main-content {
       padding: 10px;
     }
+    body {
+      padding-top: 170px; /* Adjust padding for the fixed navbar */
+    }
   }
 
   @media (max-width: 480px) {
     html {
       font-size: 12px; /* Even smaller font size on mobile devices */
+    }
+    body {
+      padding-top: 170px; /* Adjust padding for the fixed navbar */
     }
 
     .main-content {

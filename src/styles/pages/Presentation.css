@@ -1,0 +1,67 @@
+/* Asegurar que el body ocupa toda la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Evitar barras de desplazamiento */
+}
+
+/* Definir una propiedad personalizada para rotar el ángulo */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* Contenedor principal */
+.presentation-container {
+    --color1:#2a2a2a; /* Color negro */
+    --color2: blue;  /* Color azul */
+
+    position: relative;
+    height: 100vh; /* Ocupar toda la pantalla */
+    width: 100vw; /* Ocupar todo el ancho */
+
+    /* Fondo animado con gradiente */
+    background-image: linear-gradient(var(--angle), var(--color1) 50%, var(--color2) 50%);
+    animation: bg-rotate 10s linear infinite;
+
+    /* Centrar el contenido en el centro de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Animación de rotación del fondo */
+@keyframes bg-rotate {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* Estilo del texto */
+.presentation-container h1 {
+    font-size: 5ch;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+
+    /* Cambiar entre blanco y negro según el fondo */
+    color: white; /* Punto de inicio */
+    mix-blend-mode: difference; /* Invertir el color según el fondo */
+    margin-bottom: 20px; /* Espacio entre el título y los botones */
+}
+
+/* Contenedor de botones */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Si es necesario, puedes agregar estilos personalizados para los botones aquí */

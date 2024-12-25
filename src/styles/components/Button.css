@@ -1,0 +1,71 @@
+/* Estilo general del botón */
+.animated-button {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 2px solid #fdfd00;
+    border-radius: 8px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 200px;
+
+
+}
+.animated-button:hover  {
+
+    color: #2a2a2a;
+    background-color: #fdfd00;
+}
+
+/* Texto encima del cuadrado */
+.animated-button span {
+    position: relative;
+    z-index: 2;
+
+}
+
+/* Cuadrado de animación */
+.square {
+    width: 100%;
+    height: 100%;
+    background-color:#e61616;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center; /* Punto de inicio de la animación */
+    z-index: 1;
+    transform: scaleX(0); /* Estado inicial */
+}
+
+/* Animación de carga (hover) */
+.square-loading {
+    animation: loading 0.5s forwards ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Animación de descarga (al salir del hover) */
+.square-unloading {
+    animation: unloading 0.5s forwards ease-in-out;
+}
+
+@keyframes unloading {
+    0% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
