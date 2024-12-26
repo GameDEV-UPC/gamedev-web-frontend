@@ -1,4 +1,19 @@
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Animación de rotación del fondo */
+@keyframes bg-rotate {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
 /* Reset some default browser styles */
 * {
     margin: 0;
@@ -20,10 +35,29 @@
     line-height: 1.6;
     overflow-x: hidden; /* Prevents horizontal scrolling */
   }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Evitar barras de desplazamiento */
 
+  --color1: var(--color-secondary); /* Color negro */
+  --color2: var(--background-color);  /* Color azul */
+
+  position: relative;
+
+
+  /* Fondo animado con gradiente */
+  background: linear-gradient(var(--angle), #302b63 20%, #24243e 60%);
+
+  animation: bg-rotate 6s linear infinite;
+}
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: #ffffff; /* White color for all headings */
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff00ff;
   }
 
   p {
