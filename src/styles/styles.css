@@ -26,25 +26,21 @@
     scroll-behavior: smooth; /* Smooth scrolling for anchor links */
   }
 
-  body {
-    padding-top: 100px;
-    font-family: var(--main-font);
-    font-weight: 400;
-    background-color: var(--background-color); /* Background color of the entire page */
-    color:var(--text-color); /* Default text color */
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-  }
+
 body {
+
   margin: 0;
   padding: 0;
+
   height: 100vh;
   width: 100vw;
   overflow: hidden; /* Evitar barras de desplazamiento */
-
+  font-family: var(--main-font);
+  font-weight: 600;
+  line-height: 1.6;
   --color1: var(--color-secondary); /* Color negro */
   --color2: var(--background-color);  /* Color azul */
-
+  overflow-x: hidden; /* Prevents horizontal scrolling */
   position: relative;
 
 

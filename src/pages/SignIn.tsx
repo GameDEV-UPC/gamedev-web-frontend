@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginButton from '../components/LoginButton';
 import InputPassword from '../components/InputPassword';
 import TextField from '../components/TextField';
-import '../styles/pages/Login.css';
+import '../styles/pages/SignIn.css';
 
 const SignIn: React.FC = () => {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario

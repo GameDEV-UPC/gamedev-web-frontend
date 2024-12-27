@@ -1,86 +1,58 @@
-/* Contenedor principal de la barra de navegación */
+/* Contenedor principal del navbar */
 .main-container {
     display: flex;
-    align-items: center; /* Alinea verticalmente la imagen y el grupo de botones */
-    background-color: #1f1f1f;
-    gap: 0px; /* Espaciado entre el logo y la sección de los botones */
-    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(15, 12, 41, 0.8); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    padding: 0 30px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     height: 70px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
 }
 
+/* Estilo del logo */
 .logo {
-    width: 0px;
-    height: 100%;
-    padding-top: 10px;
+    position: absolute;
+    font-family: 'Orbitron-Medium', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    cursor: pointer;
 }
 
-/* Contenedor de los radio buttons */
-.nav-container {
-    display: flex;
-    justify-content: center; /* Esto centra el grupo de botones */
-    align-items: center;
-    flex: 1; /* Toma todo el espacio restante entre la imagen y el final de la barra */
+/* Contenedor de navegación */
 
-}
-
-.profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Hace que sea circular */
-    object-fit: cover;
-    cursor: pointer; /* Indica que es interactivo */
-}
-
-.lg-button {
-    width: 100px;
+.container{
+    display: block;
+    justify-content: center;
     align-items: center;
     position: absolute;
-    right: 0px;
-    align-content: center;
-    background-color: rgba(0, 0, 0, 0);
-    border: 2px solid #00ff00;
-    border-radius: 8px;
-}
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
 
-.lg-button:hover {
-    background-color: #00ff00;
-    transition: background-color 2s;
 }
-
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
     .main-container {
-        display: flex;
-        flex-direction: column; /* Cambiar a diseño vertical */
-        align-items: center; /* Centrar contenido */
-        height: 140px; /* Permitir altura dinámica */
-        gap: 10px; /* Reducir espacio entre logo y navbar */
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
     }
 
     .logo {
-        width: 100px; /* Ajustar tamaño del logo en móviles */
+        font-size: 20px;
+        text-align: center;
     }
 
     .nav-container {
-        width: 100%; /* Asegurar que el navbar ocupe todo el ancho */
-        padding: 10px 0; /* Añadir espacio vertical */
+        justify-content: center;
+        gap: 10px;
     }
-
-    .profile-container {
-        position: relative; /* Cambiar posición para que esté en el flujo del layout */
-        width: 100%;
-        justify-content: center; /* Centrar contenido */
-        padding: 10px 100px; /* Espaciado adicional */
-        align-items: center;
-    }
-    .lg-button {
-       width: 100px  ;
-        top: 10px;
-    }
-
 }

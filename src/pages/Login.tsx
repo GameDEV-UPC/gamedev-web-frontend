@@ -42,7 +42,7 @@ const Login: React.FC = () => {
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                <LoginButton onClick={handleLogin} />
+                <LoginButton onClick={handleLogin}/>
             </div>
         </div>
     );

@@ -1,9 +1,12 @@
-/* Estilo para la página My Stats */
+
 .my-stats-page {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    padding-top: 100px;
+
     background-color: rgba(31, 31, 31, 0);
     color: #fff;
     min-height: 100vh;

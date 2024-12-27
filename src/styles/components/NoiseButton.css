@@ -1,18 +1,19 @@
 .container {
     display: flex;
-    flex-wrap: inherit;
+    flex-wrap: wrap; /* Cambiar a wrap para evitar desbordamientos */
     justify-content: center;
-    align-content: flex-end;
+    align-items: center;
     gap: 10px;
-    margin: auto;
-    max-width: 500px;
-    padding: 20px;
-    width: 100%;
+
+
 }
 
 .radio-btn-group {
-    margin: 10px;
+    margin: 5px;
     position: relative;
+    width: 120px;
+    height: 50px;
+    flex-shrink: 0; /* Asegura que los botones no se reduzcan más allá de este tamaño */
 }
 
 input[type="radio"] {
@@ -22,83 +23,112 @@ input[type="radio"] {
 
 /* Estilos para cuando el radio está seleccionado */
 input[type="radio"]:checked + label span {
-    color: red; /* Cambiar el color del texto del span a rojo */
+    color: #ff0000; /* Cambiar el texto a rojo al seleccionar */
+    text-shadow: 0 0 8px #ff0000; /* Efecto neón suave */
 }
 
-/* Estilo para el label */
+/* Estilo general del label */
 label {
-    color: #fff;
-    cursor: pointer;
     display: flex;
     align-items: center;
+    align-content: center;
     justify-content: center;
-    font-weight: 500;
-    font-family: var(--main-font), sans-serif;
-
-    width: 100px; /* Fijar ancho */
-    height: 50px; /* Fijar altura */
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
     position: relative;
-
-    &::before {
-        background-color: #24252c;
-        border-radius: 10px;
-        content: "";
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: skew(-15deg);
-        transition: box-shadow 700ms;
-        width: 100%;
-        z-index: -1;
-    }
-
-    span {
-        transition: color 350ms ease; /* Asegura que el cambio de color sea suave */
-        z-index: 1;
-        text-align: center;
-    }
-
-    svg {
-        border-radius: 10px;
-        overflow: hidden;
-        position: absolute;
-        transform: skew(-15deg);
-        width: 100%;
-        height: 100%;
-    }
-
-    .blue rect {
-        fill: #76b3fa;
-        mix-blend-mode: plus-lighter;
-    }
-
-    .pink rect {
-        fill: #ff6bd3;
-    }
+    width: 100%; /* Igualar al tamaño del grupo */
+    height: 100%; /* Igualar al tamaño del grupo */
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: skew(-10deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Hover sobre el label */
+/* Fondo SVG dinámico aplicado al label */
+label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #ff00ff, #00ffff, #00ff88);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s infinite;
+    z-index: -1;
+    filter: blur(3px);
+    transform: skew(10deg);
+}
+
+/* SVG como decoración dentro del label */
+label svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.blue rect {
+    fill: rgb(127, 176, 237);
+    mix-blend-mode: screen;
+}
+
+.pink rect {
+    fill: rgb(255, 107, 211);
+    mix-blend-mode: screen;
+}
+
+/* Hover sobre el botón */
 label:hover {
-    &::before {
-        box-shadow: 0 0 25px 2px #0763f7;
-    }
+    transform: skew(-10deg) scale(1.1); /* Sutil aumento en el hover */
+    box-shadow: 0 0 20px #00ffff, 0 0 30px rgba(0, 255, 255, 0.5);
+}
 
-    span {
-        color: #c40a35;
+label:hover span {
+    color: #ff0077; /* Cambiar el texto a un color llamativo al hover */
+}
+
+span {
+    transition: color 350ms ease; /* Cambio de color suave */
+    z-index: 1;
+}
+
+/* Animación de gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
-/* Responsive */
+/* Responsivo */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
-
+        gap: 10px;
     }
 
     .radio-btn-group {
-        margin: 5px;
+        width: 60px;
+        height: 50px;
     }
 
+    label {
+        font-size: 12px;
+        align-items: center;
+        justify-content: center;
 
+    }
 }

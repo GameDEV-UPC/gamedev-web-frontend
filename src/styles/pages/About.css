@@ -1,68 +1,10 @@
-/* Estilo general del contenedor */
+
 .about-container {
-    padding: 10px;
-    font-family: Arial, sans-serif;
+   padding-top: 100px;
 }
-
-/* Título principal */
 .about-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #1e90ff;
-    margin-bottom: 20px;
-}
-
-/* Descripción general */
-.about-description {
-    font-size: 1.2rem;
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Contenedor de botones de sección */
-.section-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* Botones de sección */
-.section-button {
-    background-color: #cccccc;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-/* Botón activo */
-.section-button.active {
-    background-color: #007BFF;
-}
-
-/* Hover para botones */
-.section-button:hover {
-    background-color: #0056b3;
-}
-
-/* Título de la sección activa */
-.section-title {
-    font-size: 2rem;
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 15px;
-}
-
-/* Descripción de la sección activa */
-.section-description {
-    font-size: 1rem;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+   color: var(--color-text);
+   font-size: 38px;
+   margin-bottom: 30px;
+   text-align: center;
 }

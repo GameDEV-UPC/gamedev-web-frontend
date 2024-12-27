@@ -1,71 +1,65 @@
 /* Estilo general del botón */
 .animated-button {
-    background-color: #2a2a2a;
-    color: #fff;
-    border: 2px solid #fdfd00;
-    border-radius: 8px;
-    padding: 16px 32px;
+    --button-color: #a072fb;
+    width: 150px;
+    background: transparent;
+    color: #ffffff;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    cursor: pointer;
+    border: 2px solid var(--button-color);
+    border-radius: 50px;
+    padding: 12px 30px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 0.1em;  
     transition: all 0.3s ease-in-out;
-    width: 200px;
-
-
-}
-.animated-button:hover  {
-
-    color: #2a2a2a;
-    background-color: #fdfd00;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 0 0 15px var(--color-border);
 }
 
-/* Texto encima del cuadrado */
+.animated-button:hover {
+    color: #0f0c29;
+    background: var(--button-color);
+    box-shadow: 0 0 25px var(--button-color), 0 0 50px var(--button-color);
+}
+
+/* Texto animado encima */
 .animated-button span {
     position: relative;
     z-index: 2;
-
 }
 
-/* Cuadrado de animación */
-.square {
-    width: 100%;
-    height: 100%;
-    background-color:#e61616;
+/* Efecto de líneas dinámicas */
+.animated-button::before,
+.animated-button::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    transform-origin: center; /* Punto de inicio de la animación */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--button-color), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
     z-index: 1;
-    transform: scaleX(0); /* Estado inicial */
 }
 
-/* Animación de carga (hover) */
-.square-loading {
-    animation: loading 0.5s forwards ease-in-out;
+.animated-button::after {
+    top: auto;
+    bottom: 0;
+    transform: translateX(100%);
+    background: linear-gradient(-90deg, transparent, var(--button-color), transparent);
 }
 
-@keyframes loading {
-    0% {
-        transform: scaleX(0);
-    }
-    100% {
-        transform: scaleX(1);
-    }
+.animated-button:hover::before {
+    transform: translateX(100%);
 }
 
-/* Animación de descarga (al salir del hover) */
-.square-unloading {
-    animation: unloading 0.5s forwards ease-in-out;
-}
-
-@keyframes unloading {
-    0% {
-        transform: scaleX(1);
-    }
-    100% {
-        transform: scaleX(0);
-    }
+.animated-button:hover::after {
+    transform: translateX(-100%);
 }

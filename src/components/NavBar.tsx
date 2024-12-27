@@ -39,22 +39,15 @@ function NavBar() {
 
             <h1 className="logo">GameDev</h1>
 
-            <nav className="nav-container">
+
                 <NoiseButton options={options} />
-                {isLoggedIn ? (
-                    <img
-                        src={profilePicture || defaultProfileIcon}
-                        alt="Profile"
-                        className="profile-picture"
-                    />
-                ) : (
-                    <button onClick={() =>{navigate("/")}} className="lg-button">Login</button>
-                )}
-            </nav>
 
-            <div className="profile-container">
 
-            </div>
+
+
+
+
+
         </header>
     );
 }
