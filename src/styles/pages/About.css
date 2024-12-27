@@ -1,10 +1,129 @@
-
 .about-container {
-   padding-top: 100px;
-}
-.about-title {
-   color: var(--color-text);
-   font-size: 38px;
-   margin-bottom: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   max-width: 800px;
+   margin: auto;
+   color: #fff;
+   font-family: 'Orbitron-Medium', sans-serif;
    text-align: center;
+}
+
+.about-info {
+   margin-bottom: 30px;
+}
+
+h1 {
+   font-size: 32px;
+   margin-bottom: 15px;
+   color: #ff00ff;
+}
+
+p {
+   font-size: 18px;
+   margin-bottom: 20px;
+   line-height: 1.6;
+}
+/* Estilo del switch container */
+.switch-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 20px 0;
+   position: relative;
+}
+
+.switch-background {
+   position: relative;
+   background: linear-gradient(90deg, #333, #1a1a1a, #333);
+   width: 300px;
+   height: 50px;
+   border-radius: 25px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8),
+   0px 0px 10px rgba(0, 255, 255, 0.3);
+   padding: 5px;
+}
+
+.switch-indicator {
+   position: absolute;
+   top: 5px;
+   left: 5px;
+   width: 145px;
+   height: 40px;
+   border-radius: 20px;
+   background: linear-gradient(120deg, #00ffff, #00ff88);
+   transition: transform 0.4s ease;
+   z-index: 1;
+   box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5);
+}
+
+.switch-indicator.left {
+   transform: translateX(0);
+}
+
+.switch-indicator.right {
+   transform: translateX(150px);
+}
+
+.switch-btn {
+   position: relative;
+   z-index: 2;
+   width: 50%;
+   height: 100%;
+   font-family: "Orbitron-Medium", sans-serif;
+   font-size: 16px;
+   text-transform: uppercase;
+   font-weight: bold;
+   color: #ffffff;
+   background: none;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   transition: color 0.3s ease;
+}
+
+.switch-btn.active {
+   color: #00ffff;
+}
+
+.switch-btn:hover {
+   color: #00ff88;
+}
+
+.members-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   gap: 20px;
+   width: 100%;
+}
+
+.member-card {
+   background: #24252c;
+   border-radius: 12px;
+   padding: 15px;
+   text-align: center;
+   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+   transform: scale(1.05);
+   box-shadow: 0 0 15px #00ffff;
+}
+
+.member-photo {
+   width: 100%;
+   height: auto;
+   border-radius: 8px;
+   margin-bottom: 10px;
+}
+
+.member-name {
+   font-size: 18px;
+   color: #fff;
 }

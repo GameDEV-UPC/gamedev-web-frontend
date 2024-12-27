@@ -2,14 +2,13 @@
 .main-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: rgba(15, 12, 41, 0.8); /* Fondo semitransparente */
     backdrop-filter: blur(10px); /* Efecto de desenfoque */
     padding: 0 30px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
     z-index: 1000;
     height: 70px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
@@ -24,6 +23,7 @@
     color: #ffffff;
     text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
     cursor: pointer;
+    left: 30px
 }
 
 /* Contenedor de navegación */
@@ -41,18 +41,26 @@
 /* Responsive design */
 @media (max-width: 768px) {
     .main-container {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 20px;
+        padding: 0 15px;
+        gap: 2%;
     }
+    .container{
+        display: flex;
 
+
+
+        position: relative;
+
+
+    }
+    .radio-btn-group {
+        width: 100px;
+        height: 4px;
+    }
     .logo {
-        font-size: 20px;
-        text-align: center;
-    }
+        font-size: 15px;
+        position: relative;
+        margin-right: 10px;
 
-    .nav-container {
-        justify-content: center;
-        gap: 10px;
     }
 }
