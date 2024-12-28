@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/pages/Presentation.css";
 import Button from "../components/Button.tsx";
 import { useNavigate } from "react-router-dom";
+import AnimatedText from "../components/AnimatedText.tsx";
 
 function Presentation() {
     const navigate = useNavigate();
@@ -13,9 +14,17 @@ function Presentation() {
     };
     return (
         <div className="presentation-container">
-            <h1>GameDev</h1>
+            <AnimatedText
+                size={100}
+                primaryColor={"#ffffff"}
+                glitchColor={"#dca5dc"}
+                glitchInterval={300}
+                probability={0.9}
+                glow={true}
+            >GameDev</AnimatedText>
             <div className="button-container">
-                <Button onClick={handleLogin}>LOGIN</Button>
+                <Button onClick={handleLogin}>
+                    LOGIN</Button>
                 <Button onClick={handleSignUp}>SIGN UP</Button>
             </div>
             <div className="rotating-line"></div>

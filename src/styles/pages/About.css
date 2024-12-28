@@ -3,11 +3,14 @@
    flex-direction: column;
    align-items: center;
    padding: 20px;
-   max-width: 800px;
+   max-width: 100%;
    margin: auto;
    color: #fff;
    font-family: 'Orbitron-Medium', sans-serif;
-   text-align: center;
+   text-align: left;
+}
+.animated-text {
+  text-align: justify;
 }
 
 .about-info {
@@ -32,11 +35,12 @@ p {
    align-items: center;
    margin: 20px 0;
    position: relative;
+
 }
 
 .switch-background {
    position: relative;
-   background: linear-gradient(90deg, #333, #1a1a1a, #333);
+   background: linear-gradient(90deg, rgba(51, 51, 51, 0), #1a1a1a, rgba(51, 51, 51, 0));
    width: 300px;
    height: 50px;
    border-radius: 25px;
@@ -56,8 +60,8 @@ p {
    width: 145px;
    height: 40px;
    border-radius: 20px;
-   background: linear-gradient(120deg, #00ffff, #00ff88);
-   transition: transform 0.4s ease;
+   background: linear-gradient(120deg, rgba(208, 0, 255, 0.47), rgba(0, 255, 136, 0.46));
+   transition: transform 0.4s ease-in-out;
    z-index: 1;
    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5);
 }
@@ -75,8 +79,8 @@ p {
    z-index: 2;
    width: 50%;
    height: 100%;
-   font-family: "Orbitron-Medium", sans-serif;
-   font-size: 16px;
+
+   font-size: 12px;
    text-transform: uppercase;
    font-weight: bold;
    color: #ffffff;
@@ -96,14 +100,16 @@ p {
 }
 
 .members-container {
+   align-items: center;
+   justify-content: center;
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-   gap: 20px;
+   grid-template-columns:200px 200px 200px ;
+   gap: 50px;
    width: 100%;
 }
 
 .member-card {
-   background: #24252c;
+   background: rgba(36, 37, 44, 0);
    border-radius: 12px;
    padding: 15px;
    text-align: center;

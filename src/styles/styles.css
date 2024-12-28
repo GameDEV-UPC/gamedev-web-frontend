@@ -137,7 +137,7 @@ body {
       padding: 10px;
     }
     body {
-      padding-top: 170px; /* Adjust padding for the fixed navbar */
+      padding-top: 80px; /* Adjust padding for the fixed navbar */
     }
   }
 
@@ -146,7 +146,7 @@ body {
       font-size: 12px; /* Even smaller font size on mobile devices */
     }
     body {
-      padding-top: 170px; /* Adjust padding for the fixed navbar */
+      padding-top: 100px; /* Adjust padding for the fixed navbar */
     }
 
     .main-content {

@@ -33,9 +33,9 @@ label {
     align-items: center;
     align-content: center;
     justify-content: center;
-    font-family: 'Orbitron-Medium', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 24px;
     color: #ffffff;
     text-transform: uppercase;
     position: relative;
@@ -44,7 +44,7 @@ label {
     cursor: pointer;
     border-radius: 12px;
     overflow: hidden;
-    transform: skew(-10deg);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
 }
@@ -62,7 +62,7 @@ label::before {
     animation: gradientAnimation 3s infinite;
     z-index: -1;
     filter: blur(3px);
-    transform: skew(10deg);
+
 }
 
 /* SVG como decoración dentro del label */
@@ -117,7 +117,7 @@ span {
 @media (max-width: 768px) {
     .container {
         padding: 10px;
-        gap: 10px;
+        gap: 0px;
     }
 
     .radio-btn-group {
@@ -126,7 +126,7 @@ span {
     }
 
     label {
-        font-size: 12px;
+        font-size: 15px;
         align-items: center;
         justify-content: center;
 

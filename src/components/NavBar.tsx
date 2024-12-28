@@ -5,6 +5,7 @@ import NoiseButton from "./NoiseButton.tsx";
 
 
 import defaultProfileIcon from "../assets/images/profile-icon-default.png";
+import AnimatedText from "./AnimatedText.tsx";
 
 function NavBar() {
     const [activeLink, setActiveLink] = useState<number>(1);
@@ -37,7 +38,17 @@ function NavBar() {
     return (
         <header className="main-container">
 
-            <h1 className="logo">GameDev</h1>
+            <div className="logo">
+                <AnimatedText
+                    size={50}
+                    glitchColors={["red", "black", "white"]}
+                    glitchInterval={200}
+                    probability={0.9}
+                    glow={true}
+                >
+                    GameDev
+                </AnimatedText>
+            </div>
 
 
                 <NoiseButton options={options} />

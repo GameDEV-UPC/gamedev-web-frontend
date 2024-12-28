@@ -1,9 +1,9 @@
 :root{
   --color-text: #ffffff; /* Texto blanco */
   --background-color: #232425;
-  --color-primary: #fbf9ff;
+  --color-primary: #ff00ff;
     --color-secondary: #5a3f86;
-  --main-font: Orbitron-Regular;
+  --main-font: "VT323";
    --color-shadow: #000000;
   --color-border:  #a072fb;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/pages/About.css";
+import AnimatedText from "../components/AnimatedText.tsx";
 
 interface Member {
     name: string;
@@ -43,12 +44,13 @@ const About: React.FC = () => {
         <div className="about-container">
             <div className="about-info">
                 <h1>About Us</h1>
-                <p>
+
+                <AnimatedText size={20} glitchColors ={["red", "black", "white"]} glitchInterval={1000} probability={0.99 }>
                     Welcome to our organization! We are passionate about developing
                     cutting-edge technologies and creating engaging video game
                     experiences. Learn more about our incredible team by exploring our
                     sections.
-                </p>
+                </AnimatedText>
                 <div className="switch-container">
                     <div className="switch-background">
                         <div
