@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(15, 12, 41, 0.8); /* Fondo semitransparente */
+    background-color: rgba(15, 12, 41, 0.23); /* Fondo semitransparente */
     backdrop-filter: blur(10px); /* Efecto de desenfoque */
     padding: 0 30px;
     width: 100%;
@@ -11,7 +11,7 @@
     top: 0;
     z-index: 1000;
     height: 70px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-bottom: 2px solid rgba(255, 255, 255, 0); /* Borde sutil */
 }
 
 /* Estilo del logo */

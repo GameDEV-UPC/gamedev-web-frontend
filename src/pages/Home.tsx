@@ -1,61 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Leaderboard from "../components/Leaderboard";
-import User from "../interfaces/User";
+import React from 'react';
+import GameCard from '../components/GameCard'; // Asegúrate de que la ruta sea correcta
+import '../styles/pages/Home.css'; // Archivo CSS para estilos del Home
+
 function Home() {
-  // Definir el estado para los usuarios, carga y error
-  const [users, setUsers] = useState([]); // Estado para los usuarios
-  const [loading, setLoading] = useState(true); // Estado de carga
-  const [error, setError] = useState(null); // Estado de error
+  const games = [
+    { gameName: 'Game A', playTime: 10, score: 90 },
+    { gameName: 'Game B', playTime: 8, score: 90 },
+    { gameName: 'Game C', playTime: 15, score: 85 },
+    { gameName: 'Game D', playTime: 5, score: 95 },
+  ];
 
-  // useEffect para llamar a la API y obtener los usuarios
-  useEffect(() => {
-    // Función asincrónica para obtener los usuarios desde la API
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('http://192.168.0.19:8000/users'); // Llamada a la API
+  // Ordenar los juegos por puntuación descendente y tiempo ascendente en caso de empate
+  const sortedGames = games.sort((a, b) => {
+    if (b.score === a.score) {
+      return a.playTime - b.playTime; // Menos tiempo de juego primero
+    }
+    return b.score - a.score; // Mayor puntuación primero
+  });
 
-        // Verificar si la respuesta fue exitosa
-        if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
-        }
-
-        // Convertir la respuesta a JSON
-        const data = await response.json();
-
-        // Asegurarnos de que la respuesta contiene los datos esperados
-        const formattedUsers = data.map((user:User) => ({
-          name: user.name,
-          score: user.score,
-          profilePicture: user.profile_pic,
-          email: user.email,
-            username: user.username,
-        }));
-
-        // Actualizar el estado con los usuarios obtenidos
-        setUsers(formattedUsers);
-      } catch (error) {
-        setError(error.message); // Capturar el error y establecer el mensaje
-      } finally {
-        setLoading(false); // Dejar de mostrar el estado de carga
-      }
-    };
-
-    fetchUsers();
-  }, []); // El array vacío asegura que solo se llame una vez al cargar la página
-
-  // Renderizar según el estado de carga o error
-  if (loading) {
-    return <p>⏳ Cargando usuarios...</p>; // Mensaje de carga
-  }
-
-  if (error) {
-    return <p>❌ Error: {error}</p>; // Mensaje de error si ocurre algo
-  }
-
-  // Renderizar la lista de usuarios cuando la carga termine y no haya errores
   return (
-      <div>
-        <Leaderboard users={users} /> {/* Pasar los usuarios a la componente Leaderboard */}
+      <div className="home-container">
+        <h1 className="home-title">Game Rankings</h1>
+        <div className="game-cards-container">
+          {sortedGames.map((game, index) => (
+              <GameCard
+                  key={index}
+                  gameName={game.gameName}
+                  playTime={game.playTime}
+                  score={game.score}
+              />
+          ))}
+        </div>
       </div>
   );
 }

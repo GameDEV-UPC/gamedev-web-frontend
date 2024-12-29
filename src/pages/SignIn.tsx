@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import LoginButton from '../components/LoginButton';
 import InputPassword from '../components/InputPassword';
 import TextField from '../components/TextField';
-import '../styles/pages/SignIn.css';
+import '../styles/pages/Login.css';
+import AnimatedText from "../components/AnimatedText.tsx";
 
 const SignIn: React.FC = () => {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
@@ -40,7 +41,15 @@ const SignIn: React.FC = () => {
     return (
         <div className="login-page">
             <div className="login-container">
-                <h1 className="login-title">Sign In</h1>
+                <AnimatedText
+                    size="3rem"
+                    primaryColor="#fff"
+                    glitchColor="#ff0080"
+                    glitchInterval={300}
+                    probability={0.98}
+                    glow={true}
+
+                >Sign In</AnimatedText>
 
                 <TextField
                     placeholder="Enter your full name"
