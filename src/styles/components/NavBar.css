@@ -7,7 +7,7 @@
     backdrop-filter: blur(10px); /* Efecto de desenfoque */
     padding: 0 30px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 1000;
     height: 70px;
