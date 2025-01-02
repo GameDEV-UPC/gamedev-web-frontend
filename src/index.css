@@ -2,9 +2,9 @@
   --color-text: #ffffff; /* Texto blanco */
   --background-color: #232425;
   --color-primary: #ff00ff;
-    --color-secondary: #5a3f86;
+  --color-secondary: rgba(0, 255, 255, 0.44);;
   --main-font: "VT323";
-   --color-shadow: #000000;
+  --color-shadow: #000000;
   --color-border:  #a072fb;
 }
 @font-face {

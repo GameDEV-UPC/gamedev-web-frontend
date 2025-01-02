@@ -28,7 +28,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 70px; /* Deja espacio para el navbar fijo */
+
 
   font-family: var(--main-font);
   font-weight: 600;
@@ -41,7 +41,7 @@ body {
   /* Fondo animado con gradiente */
   background: linear-gradient(var(--angle), #302b63 20%, #24243e 60%);
   animation: bg-rotate 6s linear infinite;
-
+  overflow-y:auto;
   min-height: 100vh; /* Asegura que el fondo cubra al menos la altura de la ventana */
   height: auto; /* Ajusta la altura según el contenido */
 }
@@ -54,8 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-bottom: 1rem; /* Adds space between paragraphs */
-  color: #b0b0b0; /* Slightly lighter color for paragraph text */
+
+
+
+  color: var(--color-text);
 }
 
 a {
@@ -133,18 +135,16 @@ hr {
   .main-content {
     padding: 10px;
   }
-  body {
-    padding-top: 80px; /* Adjust padding for the fixed navbar */
-  }
+
 }
 
 @media (max-width: 480px) {
   html {
     font-size: 12px; /* Even smaller font size on mobile devices */
   }
-  body {
-    padding-top: 100px; /* Adjust padding for the fixed navbar */
-  }
+
+
+  overflow-y: auto;
 
   .main-content {
     padding: 5px;

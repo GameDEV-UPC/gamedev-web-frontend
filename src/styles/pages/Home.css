@@ -1,7 +1,4 @@
-body {
-    margin: 0;
 
-}
 .home-container {
     padding-top: 80px;
     display: flex;
@@ -9,6 +6,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
+
 }
 
 .home-title {

@@ -1,7 +1,4 @@
-body{
-    padding-top: 70px;
 
-}
 /* Estilo para la página de login */
 .login-page {
 
@@ -9,10 +6,8 @@ body{
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     flex-direction: column; /* Alinea los campos de forma vertical */
+    padding-top: 20px;
 
-    padding: 50px;
-
-    padding-top: 100px;
 }
 
 /* Estilo para el título */

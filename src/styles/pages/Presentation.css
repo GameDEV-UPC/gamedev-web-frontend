@@ -1,11 +1,9 @@
 
 /* CSS */
-body {
 
-    margin: 0;
-    padding: 0;
-
-
+body{
+    height: auto;
+    width: auto;
 }
 @property --angle {
     syntax: "<angle>";
@@ -35,6 +33,7 @@ body {
     align-items: center;
     text-align: center;
     gap: 100px;
+
 }
 @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
