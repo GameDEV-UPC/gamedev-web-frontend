@@ -1,4 +1,5 @@
 .inputField {
+
     --li-margin: 7px;
     border: 1px solid var(--color-border); /* Borde inicial azul */
     width: 300px;
@@ -38,6 +39,7 @@
 
 /* Estilo del contenedor del input */
 .inputField > li {
+
     position: absolute;
     left: var(--li-margin);
     right: var(--li-margin);
@@ -52,6 +54,8 @@
 
 /* Estilo del input */
 .inputField > li > input {
+
+    font-size: 1.2rem;
     width: 100%;
     height: 100%;
     background-color: transparent;

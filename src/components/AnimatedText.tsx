@@ -9,6 +9,7 @@ interface AnimatedTextProps {
     glitchInterval?: number; // Intervalo entre los cambios de caracteres (en milisegundos)
     probability?: number; // Probabilidad de que un carácter se glitchee
     glow?: boolean; // Activar el efecto de brillo
+    glowColor?: string; // Color del brillo
 }
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({
@@ -18,7 +19,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
                                                        glitchColor = "#ff0080",
                                                        glitchInterval = 800,
                                                          probability = 0.98,
-                                                        glow = false
+                                                        glow = false,
+                                                        glowColor = "#ff0080",
                                                    }) => {
     const [text, setText] = useState(children);
 
@@ -50,7 +52,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
             style={{
                 fontSize: size,
                 color: primaryColor,
-                textShadow: glow ? "1px 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff00ff" : "none",
+                textShadow: glow ? "1px 0 10px "+glowColor+", 0 0 20px #ff00ff" : "none",
             }}
         >
             {text.split("").map((char, index) => (

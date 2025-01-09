@@ -15,7 +15,7 @@ function NavBar() {
     const navigate = useNavigate();
     const options = [
         { value: "1", label: "My Stats", path: "/mystats" }, // Agregar path
-        { value: "2", label: "Home", path: "/home" }, // Agregar path
+        { value: "2", label: "Home", path: "/leaderboard" }, // Agregar path
         { value: "3", label: "About", path: "/about" } // Agregar path
     ];
 

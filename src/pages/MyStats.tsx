@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/pages/MyStats.css";
 import { User } from "../utils/User";
 import AnimatedText from "../components/AnimatedText.tsx";
+import colors from "../styles/colors.tsx";
 
 
 function MyStats() {
@@ -30,13 +31,17 @@ function MyStats() {
                 <div className="profile-text">
 
                     <AnimatedText
-                        size={50}
-                        primaryColor={"#00ffff"}
-                        glitchColor={"#dca5dc"}
-                        glitchInterval={300}
-                        probability={0.9}
+                        size="2rem"
+                        primaryColor={colors.primary}
+                        glitchColor={colors.glowsecondary}
                         glow={true}
-                    >{user.username}</AnimatedText>
+                        glowColor={colors.glowprimary}
+                        glitchInterval={100}
+                        probability={0.97}
+
+                    >
+                        {user.username}
+                    </AnimatedText>
                     <p>{`${user.firstName} ${user.lastName}`}</p>
                     <p>{user.email}</p>
                 </div>
@@ -44,7 +49,18 @@ function MyStats() {
 
 
             <div className="stats-section">
-                <h2>Statistics</h2>
+                <AnimatedText
+                    size="2rem"
+                    primaryColor={colors.primary}
+                    glitchColor={colors.glowsecondary}
+                    glow={true}
+                    glowColor={colors.glowprimary}
+                    glitchInterval={100}
+                    probability={0.97}
+
+                >
+                    Statistics
+                </AnimatedText>
                 <div className="stat-item">
                     <span>Total Play Time:</span>
                     <span>{user.totalPlayTime()} mins</span>
@@ -60,7 +76,18 @@ function MyStats() {
             </div>
 
             <div className="games-section">
-                <h2>Games Played</h2>
+                <AnimatedText
+                    size="2rem"
+                    primaryColor={colors.primary}
+                    glitchColor={colors.glowsecondary}
+                    glow={true}
+                    glowColor={colors.glowprimary}
+                    glitchInterval={100}
+                    probability={0.97}
+
+                >
+                    Games Played
+                </AnimatedText>
                 <div className="games-grid">
                     {user.gamesPlayed.map((game, index) => (
                         <div key={index} className="game-card">

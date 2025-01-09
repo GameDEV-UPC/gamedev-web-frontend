@@ -35,19 +35,20 @@
 }
 
 .profile-text h1 {
-    font-size: 2rem;
+
     margin: 0;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .profile-text p {
     margin: 5px 0;
-    font-size: 1rem;
+
     color: var(--color-text);
 }
 
 /* Stats section */
 .stats-section {
+    font-size: 1.2rem;
     background: rgba(0, 0, 0, 0.5);
     padding: 15px;
     border-radius: 10px;
@@ -62,7 +63,7 @@
 }
 
 h2 {
-    font-size: 1.8rem;
+
     text-align: center;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
     color: var(--color-text);
@@ -70,6 +71,7 @@ h2 {
 
 /* Games section */
 .games-section {
+    font-size: 1.2rem;
     background: rgba(0, 0, 0, 0.5);
     padding: 15px;
     border-radius: 10px;

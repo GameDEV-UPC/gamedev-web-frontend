@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/components/Leaderboard.css";
 import { User } from "../utils/User";
+import colors from "../styles/colors.tsx";
+import AnimatedText from "./AnimatedText.tsx";
 
 interface LeaderboardProps {
     users: User[];
@@ -16,7 +18,18 @@ function Leaderboard({ users }: LeaderboardProps) {
 
     return (
         <div className="leaderboard-container">
-            <h2 className="leaderboard-title">Leaderboard</h2>
+            <AnimatedText
+                size="2rem"
+                primaryColor={colors.primary}
+                glitchColor={colors.glowsecondary}
+                glow={true}
+                glowColor={colors.glowprimary}
+                glitchInterval={100}
+                probability={0.97}
+
+            >
+                Leaderboard
+            </AnimatedText>
             <div className="leaderboard">
                 {sortedUsers.map((user, index) => (
                     <div className="leaderboard-item" key={index}>

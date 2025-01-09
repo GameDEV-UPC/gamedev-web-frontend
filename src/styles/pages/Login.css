@@ -13,7 +13,7 @@
 /* Estilo para el título */
 .login-title {
     color: var(--color-text); /* Color de texto azul */
-    font-size: 38px;
+    font-size: 1.2rem;
     margin-bottom: 30px; /* Separación entre el título y los campos */
     text-align: center;
     margin-left: 100px;
@@ -21,6 +21,7 @@
 }
 
 .login-container{
+
     gap: 30px;
     display: grid;
 }
@@ -34,6 +35,7 @@
 }
 
 .inputField {
+
     width: 400px;
     display: flex;
     flex-direction: column;

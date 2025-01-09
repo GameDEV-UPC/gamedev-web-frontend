@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/pages/About.css";
 import AnimatedText from "../components/AnimatedText";
+import colors from "../styles/colors"
 
 function About() {
     const [activeSection, setActiveSection] = useState<"engine" | "videogames">("engine");
@@ -9,44 +10,62 @@ function About() {
         setActiveSection((prev) => (prev === "engine" ? "videogames" : "engine"));
     };
 
-    const descriptions = {
-        engine: "Our Engine team is dedicated to developing a cutting-edge graphics engine using C++. They focus on optimizing performance and creating realistic visual effects.",
-        videogames: "Our Video Games team specializes in crafting engaging and innovative games using Unity. They combine storytelling, gameplay mechanics, and creativity to deliver unforgettable experiences.",
-    };
-
-    const members = {
-        engine: ["Alice", "Bob", "Charlie"],
-        videogames: ["Dave", "Eve", "Frank"],
-    };
-
     return (
         <div className="about-container">
-              {/* Botón único para alternar */}
-              <div className="switch-container">
-                <button onClick={toggleSection} className="switch-button">
-                    {activeSection === "engine" ? "VideoGames" : "Engine"}
-                </button>
-            </div>
+
             {/* Descripción global */}
-            < AnimatedText glitchColor="var(--color-primary);">About Our Association</AnimatedText>
-            <section className="description fade-in">
-                
+            <AnimatedText
+                size="2rem"
+                primaryColor={colors.primary}
+                glitchColor={colors.glowsecondary}
+                glow={true}
+                glowColor={colors.glowprimary}
+                glitchInterval={100}
+                probability={0.97}
+
+            >
+                About Our Association
+            </AnimatedText>
+            <section className="description">
                 <p>
                     We are a group of passionate students from the EPSEVG, dedicated to creating
                     innovative video games and developing a state-of-the-art graphics engine.
                 </p>
             </section>
+            {/* Sección dinámica con animación de fade */}
+            <section className={`members-section ${activeSection}`}>
+                {/* Botón único para alternar */}
+                <div className="switch-container">
+                    <button
+                        onClick={toggleSection}
+                        className="switch-button"
+                        data-alt-text={activeSection === "engine" ? "VideoGames" : "Engine"}
+                    >
+                        {activeSection === "engine" ? "Engine" : "VideoGames"}
+                    </button>
+                </div>
+                <AnimatedText
+                    size="2rem"
+                    primaryColor={colors.primary}
+                    glitchColor={colors.glowsecondary}
+                    glow={true}
+                    glowColor={colors.glowprimary}
+                    glitchInterval={100}
+                    probability={0.97}
 
-          
-
-            {/* Sección dinámica */}
-            <section className={`members-section ${activeSection} fade-in`}>
-                <h2 className="section-title">
+                >
                     {activeSection === "engine" ? "Engine Team" : "Video Games Team"}
-                </h2>
-                <p className="description">{descriptions[activeSection]}</p>
-                <div className="members-grid">
-                    {members[activeSection].map((member, idx) => (
+                </AnimatedText>
+                <p className="description fade-in">
+                    {activeSection === "engine"
+                        ? "Our Engine team is dedicated to developing a cutting-edge graphics engine using C++. They focus on optimizing performance and creating realistic visual effects."
+                        : "Our Video Games team specializes in crafting engaging and innovative games using Unity. They combine storytelling, gameplay mechanics, and creativity to deliver unforgettable experiences."}
+                </p>
+                <div className="members-grid fade-in">
+                    {(activeSection === "engine"
+                            ? ["Alice", "Bob", "Charlie"]
+                            : ["Dave", "Eve", "Frank"]
+                    ).map((member, idx) => (
                         <div className="member-card" key={idx}>
                             <img
                                 src={`https://via.placeholder.com/150?text=${member}`}
