@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/pages/About.css";
 import AnimatedText from "../components/AnimatedText";
 import colors from "../styles/colors"

@@ -62,10 +62,9 @@ const NoiseButton: React.FC<RadioButtonGroupProps> = ({ options }) => {
             input.addEventListener("change", () => handleChange(input as HTMLInputElement))
         );
 
-        // 🔥 Ejecutar la animación inicial para el botón preseleccionado
         const defaultRadio = Array.from(inputs).find(
-            (input) => input.value === selectedValue
-        ) as HTMLInputElement;
+    (input) => (input as HTMLInputElement).value === selectedValue
+) as HTMLInputElement;
 
         if (defaultRadio) {
             const newNodes = nodes(defaultRadio);

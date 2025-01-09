@@ -1,4 +1,4 @@
-import React from 'react';
+
 import User from '../interfaces/User';
 import '../styles/components/MemberCard.css';
 function MemberCard(member:User) {

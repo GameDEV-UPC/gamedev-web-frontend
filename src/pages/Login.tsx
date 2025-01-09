@@ -7,7 +7,7 @@ import AnimatedText from "../components/AnimatedText.tsx";
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
-    const [password, setPassword] = useState(''); // Estado para la contraseña
+
     const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para el mensaje de error
 
     const handleLogin = async () => {
@@ -45,8 +45,8 @@ const Login: React.FC = () => {
                 />
 
                 <InputPassword
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+
+
                 />
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}

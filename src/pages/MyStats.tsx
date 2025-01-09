@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/pages/MyStats.css";
 import { User } from "../utils/User";
 import AnimatedText from "../components/AnimatedText.tsx";

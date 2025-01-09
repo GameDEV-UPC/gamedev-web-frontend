@@ -25,7 +25,7 @@ function InputPassword() {
         let currentStep = 0;
 
         const intervalId = setInterval(() => {
-            const newDisplay = originalValue.map((char, index) => {
+            const newDisplay = originalValue.map((_, index) => {
                 if (currentStep >= animationFrames)
                     return toHide ? maskedValue[index] : originalValue[index];
                 return getRandomChar();
@@ -75,7 +75,7 @@ function InputPassword() {
 
     // Maneja el evento de clic para seleccionar todo el texto
     const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-        e.target.select(); // Selecciona todo el texto cuando se hace clic
+         // Selecciona todo el texto cuando se hace clic
     };
 
     return (

@@ -3,6 +3,7 @@ import '../styles/components/LoginButton.css'; // Importamos el archivo de estil
 
 interface LoginButtonProps {
     onClick: () => Promise<void>;
+
 }
 
 const LoginButton: React.FC<LoginButtonProps> = ({ onClick }) => {

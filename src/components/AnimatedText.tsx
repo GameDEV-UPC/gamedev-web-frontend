@@ -26,7 +26,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 
     useEffect(() => {
         const glitchCharacters = "!@#$%^&*()_+1234567890<>?/|[]{}-="; // Caracteres aleatorios para el glitch
-        let interval: NodeJS.Timeout;
+
 
         const glitchText = () => {
             const textArray = children.split("");
@@ -40,7 +40,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
             setText(newText.join(""));
         };
 
-        interval = setInterval(glitchText, glitchInterval);
+        const interval = setInterval(glitchText, glitchInterval);
 
         return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
     }, [children, glitchInterval]);

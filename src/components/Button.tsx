@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/components/Button.css";
 
 interface ButtonProps {
     children: string;
     onClick?: () => void; // Prop para pasar una función personalizada al hacer clic
 }
-
 const Button = ({ children, onClick }: ButtonProps) => {
     const [animatedText, setAnimatedText] = useState(children);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [animationClass, setAnimationClass] = useState(""); // Controla la clase CSS de animación
 
     const handleMouseEnter = () => {
-        setAnimationClass("square-loading");
-        animateText();  // Iniciar la animación del texto al hacer hover
-    };
-
-    const handleMouseLeave = () => {
-        setAnimationClass("square-unloading");
+        animateText(); // Iniciar la animación del texto al hacer hover
     };
 
     // Genera un carácter aleatorio
@@ -38,7 +31,7 @@ const Button = ({ children, onClick }: ButtonProps) => {
         let currentStep = 0;
 
         const intervalId = setInterval(() => {
-            const newDisplay = originalText.map((char, index) => {
+            const newDisplay = originalText.map((_, index) => {
                 if (currentStep >= animationFrames) return originalText[index];
                 return getRandomChar();
             });
@@ -67,8 +60,6 @@ const Button = ({ children, onClick }: ButtonProps) => {
             className="animated-button"
             onClick={handleClick} // Usa el manejador handleClick
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-
         >
             <span>{animatedText}</span>
         </button>

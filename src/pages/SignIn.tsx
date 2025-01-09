@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LoginButton from '../components/LoginButton';
 import InputPassword from '../components/InputPassword';
 import TextField from '../components/TextField';
 import '../styles/pages/Login.css';
 import AnimatedText from "../components/AnimatedText.tsx";
 
-const SignIn: React.FC = () => {
+function SignIn() {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
-    const [password, setPassword] = useState(''); // Estado para la contraseña
+
     const [fullName, setFullName] = useState(''); // Estado para el nombre completo
     const [email, setEmail] = useState(''); // Estado para el correo electrónico
     const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para el mensaje de error
@@ -70,19 +70,17 @@ const SignIn: React.FC = () => {
                 />
 
                 <InputPassword
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+
                 />
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                <LoginButton onClick={handleLogin} disabled={isLoading} />
+                <LoginButton onClick={handleLogin}  />
 
                 {isLoading && <p className="loading-message">Loading...</p>}
             </div>
         </div>
     );
-};
+}
 
 export default SignIn;

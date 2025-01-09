@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/components/Leaderboard.css";
 import { User } from "../utils/User";
 import colors from "../styles/colors.tsx";

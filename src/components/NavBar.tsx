@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import {useLocation, useNavigate} from "react-router-dom"; // Mantenemos useLocation
 import "../styles/components/NavBar.css";
 import NoiseButton from "./NoiseButton.tsx";
@@ -40,8 +40,7 @@ function NavBar() {
 
             <div className="logo">
                 <AnimatedText
-                    size={50}
-                    glitchColors={["red", "black", "white"]}
+                    size={"50px"}
                     glitchInterval={200}
                     probability={0.9}
                     glow={true}
