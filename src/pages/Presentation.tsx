@@ -15,7 +15,7 @@ function Presentation() {
     return (
         <div className="presentation-container">
             <AnimatedText
-                size={"150px"}
+                size={"100px"}
                 primaryColor={"#ffffff"}
                 glitchColor={"#dca5dc"}
                 glitchInterval={300}

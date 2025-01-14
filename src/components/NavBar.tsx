@@ -26,7 +26,7 @@ function NavBar() {
         if (path === '/about') setActiveLink(2);
 
         // Simular si hay una sesión activa (puedes conectarlo a tu lógica real)
-        const loggedIn = false; // Cambiar según tu estado real
+        const loggedIn = true; // Cambiar según tu estado real
         setIsLoggedIn(loggedIn);
 
         // Si hay sesión activa, cargar foto de perfil
