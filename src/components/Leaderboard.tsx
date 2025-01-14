@@ -1,6 +1,5 @@
-
 import "../styles/components/Leaderboard.css";
-import { User } from "../utils/User";
+import User from "../interfaces/User";
 import colors from "../styles/colors.tsx";
 import AnimatedText from "./AnimatedText.tsx";
 
@@ -10,11 +9,9 @@ interface LeaderboardProps {
 
 function Leaderboard({ users }: LeaderboardProps) {
     // Sort users by total score
-    const sortUsers = (users: User[]) => {
-        return users.sort((a, b) => b.totalScore() - a.totalScore());
-    };
+   
 
-    const sortedUsers = sortUsers(users);
+    const sortedUsers = users;
 
     return (
         <div className="leaderboard-container">
@@ -26,7 +23,6 @@ function Leaderboard({ users }: LeaderboardProps) {
                 glowColor={colors.glowprimary}
                 glitchInterval={100}
                 probability={0.97}
-
             >
                 Leaderboard
             </AnimatedText>
@@ -34,14 +30,14 @@ function Leaderboard({ users }: LeaderboardProps) {
                 {sortedUsers.map((user, index) => (
                     <div className="leaderboard-item" key={index}>
                         <img
-                            src={user.profilePicture}
-                            alt={`${user.firstName} ${user.lastName}`}
+                            src={user.profile_pic}
+                            alt={user.username}
                             className="profile-pic"
                         />
                         <div className="user-info">
-                            <h3>{`${user.firstName} ${user.lastName}`}</h3>
-                            <p>Total Score: {user.totalScore()}</p>
-                            <p>Total Play Time: {user.totalPlayTime()} minutes</p>
+                            <h3>{user.username}</h3>
+                            <p>Total Score: {0}</p>
+                            <p>Total Play Time: {0} minutes</p>
                         </div>
                     </div>
                 ))}

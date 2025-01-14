@@ -7,32 +7,41 @@ import AnimatedText from "../components/AnimatedText.tsx";
 
 function SignIn() {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
-
     const [fullName, setFullName] = useState(''); // Estado para el nombre completo
     const [email, setEmail] = useState(''); // Estado para el correo electrónico
+    const [password, setPassword] = useState(''); // Estado para la contraseña
     const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para el mensaje de error
     const [isLoading, setIsLoading] = useState<boolean>(false); // Estado para mostrar un indicador de carga
 
-    const handleLogin = async () => {
-        console.log('Iniciando sesión...');
+    const handleRegister = async () => {
+        console.log('Registrando usuario...');
         setErrorMessage(null); // Reinicia el mensaje de error
         setIsLoading(true); // Activa el estado de carga
 
         try {
-            // Simula un retraso de 2 segundos para hacer el login
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const response = await fetch('http://0.0.0.0:8000/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: fullName,
+                    username: username,
+                    email: email,
+                    password: password,
+                }),
+            });
 
-            // Simula un 50% de probabilidad de éxito o error
-            const success = Math.random() > 0.5;
-            if (!success) {
-                setErrorMessage('Login failed. Please check your credentials and try again.');
-                throw new Error('Login failed');
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'Registration failed');
             }
 
-            // Si el login es exitoso, redirige o actualiza el estado de la aplicación
-            console.log('Login successful!');
+            console.log('Usuario registrado exitosamente!');
+            // Realiza alguna acción adicional como redirigir o mostrar un mensaje
         } catch (error) {
-            console.error('Error de inicio de sesión:', error);
+            console.error('Error al registrar usuario:', error);
+            setErrorMessage(error.message || 'Failed to register user. Please try again.');
         } finally {
             setIsLoading(false); // Desactiva el estado de carga
         }
@@ -48,8 +57,9 @@ function SignIn() {
                     glitchInterval={300}
                     probability={0.98}
                     glow={true}
-
-                >Sign In</AnimatedText>
+                >
+                    Sign In
+                </AnimatedText>
 
                 <TextField
                     placeholder="Enter your full name"
@@ -70,12 +80,13 @@ function SignIn() {
                 />
 
                 <InputPassword
-
+               
+                    
                 />
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                <LoginButton onClick={handleLogin}  />
+                <LoginButton onClick={handleRegister} />
 
                 {isLoading && <p className="loading-message">Loading...</p>}
             </div>
