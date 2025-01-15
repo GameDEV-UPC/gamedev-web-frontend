@@ -15,7 +15,7 @@ const Login: React.FC = () => {
         setErrorMessage(null); // Reinicia el mensaje de error
 
         try {
-            const response = await fetch('http://0.0.0.0:8000/login', {
+            const response = await fetch('http://0.0.0.0:8000/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
