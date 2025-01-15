@@ -7,21 +7,41 @@ import AnimatedText from "../components/AnimatedText.tsx";
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
-
+    const [password, setPassword] = useState(''); // Estado para la contraseña
     const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para el mensaje de error
 
     const handleLogin = async () => {
         console.log('Iniciando sesión...');
         setErrorMessage(null); // Reinicia el mensaje de error
 
-        // Simula un retraso de 2 segundos para hacer el login
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            const response = await fetch('http://0.0.0.0:8000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
+            });
 
-        // Simula un 50% de probabilidad de éxito o error
-        const success = Math.random() > 0.5;
-        if (!success) {
-            setErrorMessage('Login failed. Please check your credentials and try again.');
-            throw new Error('Login failed');
+            if (!response.ok) {
+                // Si la respuesta no es 200-299, muestra un error
+                const errorData = await response.json();
+                setErrorMessage(errorData.message || 'Login failed. Please try again.');
+                return;
+            }
+
+            const data = await response.json();
+            console.log('Login successful:', data);
+
+            // Aquí puedes guardar el token o cualquier dato necesario
+            // Por ejemplo, localStorage.setItem('token', data.token);
+
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            setErrorMessage('An error occurred. Please try again later.');
         }
     };
 
@@ -35,8 +55,9 @@ const Login: React.FC = () => {
                     glitchInterval={300}
                     probability={0.98}
                     glow={true}
-
-                >Log In</AnimatedText>
+                >
+                    Log In
+                </AnimatedText>
 
                 <TextField
                     placeholder="Enter your username"
@@ -45,13 +66,12 @@ const Login: React.FC = () => {
                 />
 
                 <InputPassword
-
-
+                    
                 />
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                <LoginButton onClick={handleLogin}/>
+                <LoginButton onClick={handleLogin} />
             </div>
         </div>
     );
