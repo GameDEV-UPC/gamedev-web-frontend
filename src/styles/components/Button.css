@@ -1,6 +1,6 @@
 /* Estilo general del botón */
 .animated-button {
-    --button-color: #a072fb;
+    --button-color: var(--color-primary);
     width: 150px;
     background: transparent;
     color: #ffffff;
@@ -8,7 +8,7 @@
     font-weight: bold;
     text-transform: uppercase;
     border: 2px solid var(--button-color);
-    border-radius: 50px;
+    border-radius: 0px;
     padding: 12px 30px;
     position: relative;
     overflow: hidden;

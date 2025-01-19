@@ -1,10 +1,4 @@
-:root {
-    --color-primary: #00e6ff;
-    --color-secondary: #ff0077;
-    --card-background: rgba(0, 20, 40, 0.85);
-    --glow-color: rgba(0, 230, 255, 0.7);
-    --transition-duration: 0.6s;
-}
+
 
 body {
     background: radial-gradient(circle, #020024, #001635, #00274a);

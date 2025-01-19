@@ -10,11 +10,13 @@ import Login from './pages/Login';
 import SignIn from './pages/SignIn';
 import './styles/styles.css';
 import Presentation from './pages/Presentation.tsx';
+import AnimatedBackground from "./components/AnimatedBackground.tsx";
 
 function App() {
     return (
         <AuthProvider>
             <Router>
+                <AnimatedBackground />
                 <NavbarAndRoutes />
             </Router>
         </AuthProvider>

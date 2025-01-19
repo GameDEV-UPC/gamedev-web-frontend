@@ -1,11 +1,11 @@
 :root{
   --color-text: #ffffff; /* Texto blanco */
-  --background-color: #232425;
-  --color-primary: #ff00ff;
-  --color-secondary: rgb(0, 255, 255);;
+  --background-color: #272727;
+  --color-primary: #00fd97;
+  --color-secondary: rgb(104, 169, 101);
   --main-font: "VT323";
-  --color-shadow: #000000;
-  --color-border:  #a072fb;
+  --color-shadow: #206b21;
+  --color-border: #528d99;
   --card-background: linear-gradient(135deg, #002c4a, #410076);
 }
 @font-face {

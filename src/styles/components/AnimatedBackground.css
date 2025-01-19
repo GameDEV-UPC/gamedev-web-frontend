@@ -1,0 +1,71 @@
+
+
+.backwrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.back-shapes {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating {
+    position: absolute;
+    animation-name: floating;
+    animation-duration: 5s;
+    animation-iteration-count:  infinite;
+    animation-timing-function: ease-in-out;
+    font-size: 35px; /* Tamaño grande para las letras */
+    color: rgba(237, 244, 241, 0.47); /* Color de las letras */
+    font-weight: bold;
+    text-transform: uppercase; /* Asegura que las letras sean mayúsculas */
+}
+
+.letter {
+    font-family: "VT323", monospace, sans-serif; /* Fuente personalizada */
+    font-size: 100px;
+    display: inline-block;
+    opacity: 0.8; /* Opacidad más baja para darle un efecto etéreo */
+    text-shadow: 0 0 10px rgba(0, 255, 153, 0.8), 0 0 20px rgba(0, 255, 153, 0.6), 0 0 30px rgba(0, 255, 153, 0.4);
+
+}
+
+/* Animación de las letras */
+@keyframes floating {
+    0% {
+        transform: translateY(0)  rotate(0deg);
+        font-size: 30px;
+    }
+    50% {
+        transform: translateY(-200vh)  rotate(360deg););
+        font-size: 20px;
+    }
+    100% {
+        transform: translateY(0);
+        font-size: 30px;
+    }
+}
+
+/* Animación de resplandor de neón */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 255, 153, 0.8), 0 0 20px rgba(0, 255, 153, 0.6), 0 0 30px rgba(0, 255, 153, 0.4);
+        fill: transparent;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 255, 153, 1), 0 0 40px rgba(0, 255, 153, 0.8), 0 0 60px rgba(0, 255, 153, 0.5);
+        fill: rgba(0, 255, 153, 1);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(0, 255, 153, 0.8), 0 0 20px rgba(0, 255, 153, 0.6), 0 0 30px rgba(0, 255, 153, 0.4);
+        fill: transparent;
+    }
+}
+

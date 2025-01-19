@@ -6,7 +6,7 @@
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     flex-direction: column; /* Alinea los campos de forma vertical */
-    padding-top: 20px;
+    padding-top: 50px;
 
 }
 

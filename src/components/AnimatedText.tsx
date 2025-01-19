@@ -52,7 +52,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
             style={{
                 fontSize: size,
                 color: primaryColor,
-                textShadow: glow ? "1px 0 10px "+glowColor+", 0 0 20px #ff00ff" : "none",
+                textShadow: glow ? "1px 0 10px "+glowColor : "none",
             }}
         >
             {text.split("").map((char, index) => (

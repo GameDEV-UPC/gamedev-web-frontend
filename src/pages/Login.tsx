@@ -4,7 +4,7 @@ import InputPassword from '../components/InputPassword';
 import TextField from '../components/TextField';
 import '../styles/pages/Login.css';
 import AnimatedText from "../components/AnimatedText.tsx";
-
+import colors from "../styles/colors.tsx";
 const Login: React.FC = () => {
     const [username, setUsername] = useState(''); // Estado para el nombre de usuario
     const [password, setPassword] = useState(''); // Estado para la contraseña
@@ -50,11 +50,12 @@ const Login: React.FC = () => {
             <div className="login-container">
                 <AnimatedText
                     size="3rem"
-                    primaryColor="#fff"
-                    glitchColor="#ff0080"
+                    primaryColor= {colors.primary}
+                    glitchColor= {colors.secondary}
                     glitchInterval={300}
                     probability={0.98}
                     glow={true}
+                    glowColor={ colors.primary}
                 >
                     Log In
                 </AnimatedText>

@@ -1,10 +1,7 @@
 
 /* CSS */
 
-body{
-    height: auto;
-    width: auto;
-}
+
 @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -13,18 +10,10 @@ body{
 .presentation-container {
     padding: 0;
     margin: 0;
-    overflow: hidden;
-    --color1: var(--color-secondary); /* Color negro */
-    --color2: var(--background-color);  /* Color azul */
 
-    position: relative;
     height: 100vh; /* Ocupar toda la pantalla */
     width: 100vw; /* Ocupar todo el ancho */
 
-    /* Fondo animado con gradiente */
-    background: linear-gradient(var(--angle), #302b63 20%, #24243e 60%);
-
-    animation: bg-rotate 6s linear infinite;
 
     /* Centrar el contenido */
     display: flex;
@@ -49,32 +38,22 @@ body{
 
 
 }
-
 .button-container {
+    position: absolute;
+    bottom: 30%; /* Ajusta la posición de los botones */
     display: flex;
-    flex-direction: row;
-    gap: 20px; /* Separar botones */
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(50px); /* Los botones comienzan desfasados hacia abajo */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transición para hacerlos aparecer */
 }
 
-/* Botones personalizados */
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-    background: transparent;
-    border: 2px solid #ffffff;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ff00ff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff00ff;
+/* Cuando los botones deben ser visibles (deslizar desde abajo) */
+.button-container.show {
+    opacity: 1;
+    transform: translateY(0); /* Los botones se mueven a su posición original */
 }
-
 /* Animación de rotación del fondo */
 @keyframes bg-rotate {
     from {
@@ -92,3 +71,12 @@ button:hover {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+
+    .button-container{
+        bottom: 40%;
+    }
+}
+
+

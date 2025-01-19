@@ -39,8 +39,8 @@ body {
   position: relative;
 
   /* Fondo animado con gradiente */
-  background: linear-gradient(var(--angle), #302b63 20%, #24243e 60%);
-  animation: bg-rotate 6s linear infinite;
+  background: linear-gradient(var(--angle), #0d0d0e 0%, #24243e 0%);
+  animation: bg-rotate 10s linear infinite;
   overflow-y:auto;
   min-height: 100vh; /* Asegura que el fondo cubra al menos la altura de la ventana */
   height: auto; /* Ajusta la altura según el contenido */
