@@ -1,11 +1,10 @@
-
+/* Animation for rotating background */
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
-/* Animación de rotación del fondo */
 @keyframes bg-rotate {
   from {
     --angle: 0deg;
@@ -14,8 +13,11 @@
     --angle: 360deg;
   }
 }
-/* Reset some default browser styles */
-* {
+
+/* Global Reset & Box Model */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,71 +25,60 @@
 
 html {
   font-size: 16px; /* Makes it easier to use rem units */
-  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-
-
   font-family: var(--main-font);
   font-weight: 600;
   line-height: 1.6;
-  --color1: var(--color-secondary); /* Color negro */
-  --color2: var(--background-color); /* Color azul */
-  overflow-x: hidden; /* Previene el desplazamiento horizontal */
-  position: relative;
-
-  /* Fondo animado con gradiente */
   background: linear-gradient(var(--angle), #0d0d0e 0%, #24243e 0%);
   animation: bg-rotate 10s linear infinite;
-  overflow-y:auto;
-  min-height: 100vh; /* Asegura que el fondo cubra al menos la altura de la ventana */
-  height: auto; /* Ajusta la altura según el contenido */
+  color: var(--color-text);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  padding-bottom: 20px; /* Optional padding for page content */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  color: #ffffff; /* White color for all headings */
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff00ff;
+  color: var(--color-text);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--color-primary);
 }
 
 p {
-
-
-
   color: var(--color-text);
-
 }
 
 a {
-  color: #4290f5; /* Global link color */
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #1f75fe; /* Slightly brighter blue on hover */
+  color: #1f75fe;
 }
 
 ul, ol {
-  padding-left: 1.5rem; /* Adds space for list items */
+  padding-left: 1.5rem;
 }
 
-
-
-
+/* Image Styles */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* Form and Input Styles */
 input, textarea, button {
   font-family: inherit;
 }
 
+/* Container for centered content */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -95,11 +86,13 @@ input, textarea, button {
   padding: 0 20px;
 }
 
+/* Main Content Styling */
 .main-content {
-  margin-top: 100px; /* Leaves space for the navbar */
+  margin-top: 100px;
   padding: 20px;
 }
 
+/* Horizontal Line Styles */
 hr {
   border: 0;
   height: 1px;
@@ -108,11 +101,11 @@ hr {
 }
 
 ::selection {
-  background-color: #4290f5;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-text);
 }
 
-/* Scrollbar customization */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -122,30 +115,26 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4290f5;
+  background-color: var(--color-primary);
   border-radius: 4px;
   border: 2px solid #2a3843;
 }
 
-/* Media queries for responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
   html {
-    font-size: 14px; /* Smaller font size on smaller screens */
+    font-size: 14px; /* Adjust font size on smaller screens */
   }
 
   .main-content {
     padding: 10px;
   }
-
 }
 
 @media (max-width: 480px) {
   html {
-    font-size: 12px; /* Even smaller font size on mobile devices */
+    font-size: 12px; /* Further adjust font size on mobile */
   }
-
-
-  overflow-y: auto;
 
   .main-content {
     padding: 5px;

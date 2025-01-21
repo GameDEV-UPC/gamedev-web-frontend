@@ -1,4 +1,4 @@
-import "../styles/components/Leaderboard.css";
+import "../styles/pages/Home.css";
 import User from "../interfaces/User";
 import colors from "../styles/colors.tsx";
 import AnimatedText from "./AnimatedText.tsx";
@@ -8,10 +8,8 @@ interface LeaderboardProps {
 }
 
 function Leaderboard({ users }: LeaderboardProps) {
-    // Sort users by total score
-   
-
-    const sortedUsers = users;
+    // Ordenar usuarios por puntuación de forma descendente
+    const sortedUsers = [...users].sort((a, b) => b.score - a.score);
 
     return (
         <div className="leaderboard-container">
@@ -28,19 +26,41 @@ function Leaderboard({ users }: LeaderboardProps) {
             </AnimatedText>
             <div className="leaderboard">
                 {sortedUsers.map((user, index) => (
-                    <div className="leaderboard-item" key={index}>
-                        <img
-                            src={user.profile_pic}
-                            alt={user.username}
-                            className="profile-pic"
-                        />
-                        <div className="user-info">
-                            <h3>{user.username}</h3>
-                            <p>Total Score: {0}</p>
-                            <p>Total Play Time: {0} minutes</p>
-                        </div>
-                    </div>
+                    <LeaderboardItem
+                        key={user.username}
+                        rank={index + 1}
+                        username={user.username}
+                        profilePic={user.profile_pic}
+                        score={user.score}
+                        playTime={user.play_time || 0} // Valor por defecto si `play_time` no existe
+                    />
                 ))}
+            </div>
+        </div>
+    );
+}
+
+interface LeaderboardItemProps {
+    rank: number;
+    username: string;
+    profilePic: string;
+    score: number;
+    playTime: number;
+}
+
+function LeaderboardItem({ rank, username, profilePic, score, playTime }: LeaderboardItemProps) {
+    return (
+        <div className="leaderboard-item">
+            <div className="rank">{rank}</div>
+            <img
+                src={profilePic}
+                alt={`Profile picture of ${username}`}
+                className="profile-pic"
+            />
+            <div className="user-info">
+                <h3>{username}</h3>
+                <p>Total Score: {score}</p>
+                <p>Total Play Time: {playTime} minutes</p>
             </div>
         </div>
     );

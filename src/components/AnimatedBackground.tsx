@@ -1,56 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "../styles/components/AnimatedBackground.css";
 
-const AnimatedBackground = ({ numLetters = 20 }) => {
-    const [letters, setLetters] = useState([]);
+function AnimatedBackground({ numLetters = 20 }) {
+    const [letters, setLetters] = useState(() => generateLetters(numLetters));
 
-    // Generar letras aleatorias con posiciones aleatorias
+    // Función para generar letras aleatorias con posiciones y estilos
+    function generateLetters(count) {
+        return Array.from({ length: count }, () => ({
+            letter: Math.random() > 0.5 ? "G" : "D",
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            rotation: `${Math.random() * 360}deg`,
+            animationDelay: `-${Math.random() * 5}s`,
+        }));
+    }
+
     useEffect(() => {
-        const generateLetters = () => {
-            const letterArray = [];
-            for (let i = 0; i < numLetters; i++) {
-                // Generamos las letras "G" o "D" de manera aleatoria
-                const letter = Math.random() > 0.5 ? "G" : "D";
-                // Generamos posiciones aleatorias para top, left y la rotación
-                const top = `${Math.random() * 100}%`;
-                const left = `${Math.random() * 100}%`;
-                const rotation = `${Math.random() * 360}deg`;
-                const animationDelay = `-${Math.random() * 5}s`;
-
-                letterArray.push({
-                    letter,
-                    top,
-                    left,
-                    rotation,
-                    animationDelay
-                });
-            }
-            setLetters(letterArray);
-        };
-
-        generateLetters();
+        setLetters(generateLetters(numLetters));
     }, [numLetters]);
 
     return (
         <div className="backwrap gradient">
             <div className="back-shapes">
-                {letters.map((letterData, index) => (
+                {letters.map(({ letter, top, left, rotation, animationDelay }, index) => (
                     <span
                         key={index}
                         className="floating letter"
-                        style={{
-                            top: letterData.top,
-                            left: letterData.left,
-                            transform: `rotate(${letterData.rotation})`,
-                            animationDelay: letterData.animationDelay,
-                        }}
+                        style={{ top, left, transform: `rotate(${rotation})`, animationDelay }}
                     >
-                        {letterData.letter}
+                        {letter}
                     </span>
                 ))}
             </div>
         </div>
     );
-};
+}
 
 export default AnimatedBackground;

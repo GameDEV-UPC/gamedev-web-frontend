@@ -1,3 +1,13 @@
+/* Variables de Colores */
+:root {
+    --color-primary: #00ffff; /* Color principal (Cian) */
+    --color-background: #1f1f1f; /* Fondo oscuro */
+    --color-text: #ffffff; /* Color de texto */
+    --color-placeholder: #a0a0a0; /* Color del texto de los placeholders */
+    --color-card-background: #333333; /* Fondo de las tarjetas */
+    --color-shadow: rgba(0, 0, 0, 0.5); /* Sombra de las tarjetas */
+    --color-secondary: #00ff00; /* Color secundario */
+}
 
 /* Stats container */
 .stats-container {
@@ -8,6 +18,7 @@
     flex-direction: column;
     gap: 20px;
 }
+
 /* Profile section adjustment */
 .profile-section {
     display: flex;
@@ -35,14 +46,12 @@
 }
 
 .profile-text h1 {
-
     margin: 0;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .profile-text p {
     margin: 5px 0;
-
     color: var(--color-text);
 }
 
@@ -63,7 +72,6 @@
 }
 
 h2 {
-
     text-align: center;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
     color: var(--color-text);
@@ -86,7 +94,7 @@ h2 {
 }
 
 .game-card {
-    background: var(--card-background);
+    background: var(--color-card-background);
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -99,7 +107,6 @@ h2 {
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--color-secondary);
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

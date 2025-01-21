@@ -2,72 +2,64 @@ import React, { useEffect, useState } from "react";
 import "../styles/components/AnimatedText.css";
 
 interface AnimatedTextProps {
-    children: string; // El texto a mostrar
-    size?: string; // Tamaño del texto
-    primaryColor?: string; // Color principal del texto
-    glitchColor?: string; // Color de las letras glitcheadas
-    glitchInterval?: number; // Intervalo entre los cambios de caracteres (en milisegundos)
-    probability?: number; // Probabilidad de que un carácter se glitchee
-    glow?: boolean; // Activar el efecto de brillo
-    glowColor?: string; // Color del brillo
+    children: string;
+    size?: string;
+    primaryColor?: string;
+    glitchColor?: string;
+    glitchInterval?: number;
+    probability?: number;
+    glow?: boolean;
+    glowColor?: string;
 }
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({
-                                                       children,
-                                                       size = "2rem",
-                                                       primaryColor = "#fff",
-                                                       glitchColor = "#ff0080",
-                                                       glitchInterval = 800,
-                                                         probability = 0.98,
-                                                        glow = false,
-                                                        glowColor = "#ff0080",
-                                                   }) => {
+function AnimatedText({
+                          children,
+                          size = "2rem",
+                          primaryColor = "#fff",
+                          glitchColor = "#ff0080",
+                          glitchInterval = 800,
+                          probability = 0.98,
+                          glow = false,
+                          glowColor = "#ff0080",
+                      }: AnimatedTextProps) {
     const [text, setText] = useState(children);
+    const glitchChars = "!@#$%^&*()_+1234567890<>?/|[]{}-=";
 
     useEffect(() => {
-        const glitchCharacters = "!@#$%^&*()_+1234567890<>?/|[]{}-="; // Caracteres aleatorios para el glitch
-
-
-        const glitchText = () => {
-            const textArray = children.split("");
-            const newText = textArray.map((char) => {
-                if (Math.random() > probability) {
-                    // Cambiar aleatoriamente un 10% de las letras
-                    return glitchCharacters[Math.floor(Math.random() * glitchCharacters.length)];
-                }
-                return char;
-            });
-            setText(newText.join(""));
-        };
+        const glitchText = () =>
+            setText((prev) =>
+                prev
+                    .split("")
+                    .map((char, i) =>
+                        Math.random() > probability ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : children[i]
+                    )
+                    .join("")
+            );
 
         const interval = setInterval(glitchText, glitchInterval);
-
-        return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
-    }, [children, glitchInterval]);
+        return () => clearInterval(interval);
+    }, [children, glitchInterval, probability, glitchChars]);
 
     return (
         <div
             className="animated-text"
-
             style={{
                 fontSize: size,
                 color: primaryColor,
-                textShadow: glow ? "1px 0 10px "+glowColor : "none",
+                textShadow: glow ? `0 0 10px ${glowColor}` : "none",
             }}
         >
-            {text.split("").map((char, index) => (
+            {text.split("").map((char, i) => (
                 <span
-                    key={index}
-                    className={char !== children[index] ? "glitch-char" : ""}
-                    style={{
-                        color: char !== children[index] ? glitchColor : primaryColor,
-                    }}
+                    key={i}
+                    className={char !== children[i] ? "glitch-char" : ""}
+                    style={{ color: char !== children[i] ? glitchColor : primaryColor }}
                 >
-          {char}
-        </span>
+                    {char}
+                </span>
             ))}
         </div>
     );
-};
+}
 
 export default AnimatedText;

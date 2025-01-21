@@ -87,8 +87,8 @@ label svg {
 
 /* Hover sobre el botón */
 label:hover {
-    transform: skew(-10deg) scale(1.1); /* Sutil aumento en el hover */
-    box-shadow: 0 0 20px #00ffff, 0 0 30px rgba(0, 255, 255, 0.5);
+    transform: scale(1.1); /* Sutil aumento en el hover */
+
 }
 
 label:hover span {

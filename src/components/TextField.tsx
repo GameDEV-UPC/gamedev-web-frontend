@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/components/TextField.css';
+import '../styles/pages/Login.css'; // Importamos el archivo de estilos CSS
 
 interface TextFieldProps {
     placeholder?: string;
@@ -8,7 +8,7 @@ interface TextFieldProps {
     type?: string;
 }
 
-const TextField: React.FC<TextFieldProps> = ({ placeholder = 'Enter text', value, onChange, type = 'text' }) => {
+function TextField({ placeholder = 'Enter text', value, onChange, type = 'text' }: TextFieldProps) {
     const [isFocused, setIsFocused] = useState(false);
 
     return (

@@ -1,47 +1,37 @@
-import React, { useState } from 'react';
-import LoginButton from '../components/LoginButton';
-import InputPassword from '../components/InputPassword';
-import TextField from '../components/TextField';
-import '../styles/pages/Login.css';
-import AnimatedText from "../components/AnimatedText.tsx";
-import colors from "../styles/colors.tsx";
-const Login: React.FC = () => {
-    const [username, setUsername] = useState(''); // Estado para el nombre de usuario
-    const [password, setPassword] = useState(''); // Estado para la contraseña
-    const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para el mensaje de error
+import React from "react";
+import "../styles/pages/Login.css";
+import TextField from "../components/TextField";
+import InputPassword from "../components/InputPassword";
+import LoginButton from "../components/LoginButton";
+import AnimatedText from "../components/AnimatedText";
+import useFormHandler from "../hooks/useFormHandler";
+import colors from "../styles/colors";
+
+function Login() {
+    const { values, errorMessage, setErrorMessage, handleChange } = useFormHandler({
+        username: "",
+        password: "",
+    });
 
     const handleLogin = async () => {
-        console.log('Iniciando sesión...');
-        setErrorMessage(null); // Reinicia el mensaje de error
+        console.log("Iniciando sesión...");
+        setErrorMessage(null);
 
         try {
-            const response = await fetch('http://0.0.0.0:8000/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username,
-                    password,
-                }),
+            const response = await fetch("http://0.0.0.0:8000/users/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
             });
 
             if (!response.ok) {
-                // Si la respuesta no es 200-299, muestra un error
                 const errorData = await response.json();
-                setErrorMessage(errorData.message || 'Login failed. Please try again.');
-                return;
+                throw new Error(errorData.message || "Login failed. Please try again.");
             }
 
-            const data = await response.json();
-            console.log('Login successful:', data);
-
-            // Aquí puedes guardar el token o cualquier dato necesario
-            // Por ejemplo, localStorage.setItem('token', data.token);
-
+            console.log("Login successful!");
         } catch (error) {
-            console.error('Error al iniciar sesión:', error);
-            setErrorMessage('An error occurred. Please try again later.');
+            setErrorMessage(error.message || "An error occurred. Please try again later.");
         }
     };
 
@@ -50,24 +40,24 @@ const Login: React.FC = () => {
             <div className="login-container">
                 <AnimatedText
                     size="3rem"
-                    primaryColor= {colors.primary}
-                    glitchColor= {colors.secondary}
+                    primaryColor={colors.primary}
+                    glitchColor={colors.secondary}
                     glitchInterval={300}
                     probability={0.98}
                     glow={true}
-                    glowColor={ colors.primary}
+                    glowColor={colors.primary}
                 >
                     Log In
                 </AnimatedText>
 
                 <TextField
                     placeholder="Enter your username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={values.username}
+                    onChange={(e) => handleChange("username", e.target.value)}
                 />
-
                 <InputPassword
-                    
+                    value={values.password}
+                    onChange={(e) => handleChange("password", e.target.value)}
                 />
 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -76,6 +66,6 @@ const Login: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Login;

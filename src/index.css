@@ -1,36 +1,45 @@
-:root{
-  --color-text: #ffffff; /* Texto blanco */
+:root {
+  /* Color Palette */
+  --color-text: #ffffff;
   --background-color: #272727;
   --color-primary: #00fd97;
   --color-secondary: rgb(104, 169, 101);
-  --main-font: "VT323";
   --color-shadow: #206b21;
   --color-border: #528d99;
   --card-background: linear-gradient(135deg, #002c4a, #410076);
+
+  /* Fonts */
+  --main-font: "VT323";
+  --font-orbitron-regular: 'Orbitron-Regular';
+  --font-orbitron-medium: 'Orbitron-Medium';
+  --font-dosis-regular: 'Dosis-Regular';
+  --font-dosis-light: 'Dosis-Light';
 }
+
 @font-face {
-  font-family: 'Orbitron-Regular';
+  font-family: var(--font-orbitron-regular);
   src: url('./assets/fonts/Orbitron/static/Orbitron-Regular.ttf') format('opentype');
-  font-weight: 00; 
+  font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'Orbitron-Medium';
+  font-family: var(--font-orbitron-medium);
   src: url('./assets/fonts/Orbitron/static/Orbitron-Medium.ttf') format('opentype');
-  font-weight: 400; 
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Dosis-Regular';
+  font-family: var(--font-dosis-regular);
   src: url('./assets/fonts/Dosis/static/Dosis-Regular.ttf') format('opentype');
-  font-weight: 400; 
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Dosis-Light';
-  src: url('./assets/fonts/Dosis/static/Dosis-Light.ttf') format('opentype');
-  font-weight: 400; 
+  font-weight: 400;
   font-style: normal;
 }
 
+@font-face {
+  font-family: var(--font-dosis-light);
+  src: url('./assets/fonts/Dosis/static/Dosis-Light.ttf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -1,39 +1,28 @@
-import React, { useState, useEffect } from "react";
-import "../styles/pages/Home.css"; // Archivo CSS para estilos del Home
+import React, { useState } from "react";
+import "../styles/pages/Home.css";
 import Leaderboard from "../components/Leaderboard";
-import User from "../interfaces/User"; // Importar la interfaz para referencia tipada (opcional)
 
 function Home() {
-    // Estado para almacenar usuarios
-    const [users, setUsers] = useState<User[]>([]);
+    // Datos falsos para pruebas
+    const fakeUsers = [
+        { username: "Alice", score: 1500, profile_pic: "https://via.placeholder.com/50" },
+        { username: "Bob", score: 1200, profile_pic: "https://via.placeholder.com/50" },
+        { username: "Charlie", score: 1800, profile_pic: "https://via.placeholder.com/50" },
+        { username: "Diana", score: 900, profile_pic: "https://via.placeholder.com/50" },
+        { username: "Eve", score: 2000, profile_pic: "https://via.placeholder.com/50" },
+    ];
 
-    // Función para obtener usuarios desde la API
-    const fetchUsers = async () => {
-        try {
-            const response = await fetch("http://0.0.0.0:8000/users"); // Cambia a la URL real de tu API
-            if (!response.ok) throw new Error(`Error: ${response.status}`);
+    const [users, setUsers] = useState(fakeUsers); // Usamos estado para controlar los usuarios
 
-            const data = await response.json();
-            // Mapear datos de la API a la estructura de User
-            const mappedUsers = data.map((item: any) => ({
-                username: item.username,
-                score: item.score,
-                profile_pic: item.profile_pic,
-            }));
-            setUsers(mappedUsers);
-        } catch (error) {
-            console.error("Error al obtener usuarios:", error);
-        }
-    };
 
-    // Llamar a la API cuando se cargue el componente
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
+   // const { users, isLoading, error, refetch } = useFetchUsers("http://0.0.0.0:8000/users");
     return (
         <div className="home-container">
+
+
             <Leaderboard users={users} />
+
+
         </div>
     );
 }

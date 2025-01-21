@@ -1,4 +1,14 @@
+/* Variables de Colores */
+:root {
+    --color-primary: #00ffff; /* Color principal (Cian) */
+    --color-background: #1f1f1f; /* Fondo oscuro */
+    --color-text: #ffffff; /* Color de texto */
+    --color-placeholder: #a0a0a0; /* Color del texto de los placeholders */
+    --color-card-background: #333333; /* Fondo de las tarjetas */
+    --color-shadow: rgba(0, 0, 0, 0.5); /* Sombra de las tarjetas */
+}
 
+/* Estilo de la página principal (Home) */
 .home-container {
     padding-top: 80px;
     display: flex;
@@ -6,11 +16,75 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-
 }
 
 .home-title {
     font-size: 36px;
-    color: #00ffff;
+    color: var(--color-primary);
     margin-bottom: 20px;
+}
+
+/* Estilo de la página del leaderboard */
+.leaderboard-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.leaderboard-title {
+    font-size: 24px;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo de los ítems del leaderboard */
+.leaderboard-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    background: var(--color-card-background);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+/* Estilo de la imagen de perfil en los ítems */
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Estilo del texto de los usuarios */
+.user-info {
+    text-align: left;
+    color: var(--color-text);
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-primary);
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 20px;
+    color: var(--color-placeholder);
 }

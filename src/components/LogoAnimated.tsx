@@ -1,22 +1,18 @@
 import React from "react";
-import "../styles/components/LogoAnimated.css";
+import "../styles/pages/Presentation.css";
 
-// Componente funcional para animar el logo
-const LogoAnimated: React.FC = () => {
+function LogoAnimated() {
     return (
         <div className="logo-container">
             <svg viewBox="0 0 1320 200">
                 <text x="50%" y="50%" dy=".35em" textAnchor="middle">
-                    <tspan>G</tspan>
-                    <tspan>A</tspan>
-                    <tspan>M</tspan>
-                    <tspan>E</tspan>
-                    <tspan>D</tspan>
-                    <tspan>E</tspan>
-                    <tspan>V</tspan>
+                    {["G", "A", "M", "E", "D", "E", "V"].map((char, index) => (
+                        <tspan key={index}>{char}</tspan>
+                    ))}
                 </text>
             </svg>
         </div>
     );
-};
+}
+
 export default LogoAnimated;

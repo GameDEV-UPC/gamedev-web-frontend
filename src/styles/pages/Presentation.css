@@ -1,82 +1,157 @@
+:root {
+    --color-text: #ffffff;
+    --color-primary: #00fd97;
+    --color-border: #528d99;
+    --background-color: #272727;
+    --button-hover-color: #0f0c29;
+    --text-glow-color: rgba(0, 255, 153, 1);
+    --svg-text-shadow: 0 0 10px rgba(0, 255, 153, 0.8), 0 0 20px rgba(0, 255, 153, 0.6), 0 0 30px rgba(0, 255, 153, 0.4);
+    --svg-text-glow: rgba(0, 255, 153, 0.8);
+    --svg-font-size: 120px;
+}
 
-/* CSS */
-
-
+/* Base animation */
 @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
 }
-.presentation-container {
-    padding: 0;
-    margin: 0;
 
-    height: 100vh; /* Ocupar toda la pantalla */
-    width: 100vw; /* Ocupar todo el ancho */
-
-
-    /* Centrar el contenido */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 100px;
-
+@keyframes bg-rotate {
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
 }
+
 @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+@keyframes strokeAnimation {
+    0% {
+        stroke-dasharray: 0 500;
+        stroke-dashoffset: 0;
+        fill: transparent;
+    }
+    50% {
+        stroke-dasharray: 250 500;
+        stroke-dashoffset: -125;
+        fill: transparent;
+    }
+    100% {
+        stroke-dasharray: 500 0;
+        stroke-dashoffset: -500;
+        fill: rgba(0, 255, 153, 0.3);
+    }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(200px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Presentation Container */
+.presentation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 100px;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+/* Title */
 .presentation-container h1 {
     font-size: 4rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-
-
 }
+
+/* Button Container */
 .button-container {
     position: absolute;
-    bottom: 30%; /* Ajusta la posición de los botones */
+    bottom: 30%;
     display: flex;
     gap: 20px;
     opacity: 0;
-    transform: translateY(50px); /* Los botones comienzan desfasados hacia abajo */
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transición para hacerlos aparecer */
+    transform: translateY(50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-
-/* Cuando los botones deben ser visibles (deslizar desde abajo) */
 .button-container.show {
     opacity: 1;
-    transform: translateY(0); /* Los botones se mueven a su posición original */
+    transform: translateY(0);
 }
-/* Animación de rotación del fondo */
-@keyframes bg-rotate {
-    from {
-        --angle: 0deg;
-    }
-    to {
-        --angle: 360deg;
-    }
-}
-@keyframes rotate-line {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
 
-    .button-container{
+@media (max-width: 768px) {
+    .button-container {
         bottom: 40%;
     }
 }
 
+/* Logo Animation */
+.logo-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+}
 
+/* SVG */
+svg {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+svg text {
+    letter-spacing: 50px;
+    text-transform: uppercase;
+    font-size: var(--svg-font-size);
+    fill: transparent;
+    stroke: var(--color-primary);
+    stroke-width: 3;
+    text-shadow: var(--svg-text-shadow);
+    animation: textGlow 5s forwards, strokeAnimation 5s forwards;
+}
+
+/* Neon text glow animation */
+@keyframes textGlow {
+    0% { text-shadow: var(--svg-text-shadow); fill: transparent; }
+    50% { text-shadow: 0 0 20px var(--text-glow-color), 0 0 40px var(--text-glow-color), 0 0 60px var(--text-glow-color); fill: var(--text-glow-color); }
+    100% { text-shadow: var(--svg-text-shadow); fill: transparent; }
+}
+
+/* Animated tspan for each letter */
+svg text tspan {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(200px);
+    animation: slideInRight 0.6s forwards;
+}
+
+svg text tspan:nth-child(1) { animation-delay: 0s; }
+svg text tspan:nth-child(2) { animation-delay: 0.3s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    svg text {
+        font-size: 20vh;
+    }
+
+    svg text tspan {
+        transform: translateX(100px);
+    }
+
+    svg text tspan:nth-child(2) { animation-delay: 0.2s; }
+}
