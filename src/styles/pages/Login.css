@@ -1,36 +1,30 @@
-/* Variables de Colores */
-:root {
-    --color-primary: #00ff00; /* Verde principal */
-    --color-border: #35c4ff; /* Azul de borde */
-    --color-text: #ffffff; /* Color del texto */
-    --color-background: #1f1f1f; /* Fondo oscuro */
-    --color-error: #ff0000; /* Color de error */
-    --color-placeholder: #aaa; /* Color del placeholder */
-}
 
 /* Estilo para la página de login */
 .login-page {
+    overflow-y: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 10ch;
+    font-family: var(--text-font);
+
 }
 
 /* Estilo para el título */
 .login-title {
-    color: var(--color-text);
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    margin-bottom: 0px;
     text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
+
 }
 
 /* Estilo de los contenedores de input */
 .login-container {
     gap: 30px;
     display: grid;
+    width: 80%;
+    max-width: 500px;
 }
 
 /* Estilo del mensaje de error */
@@ -44,24 +38,28 @@
 
 /* Estilo de los campos de input */
 .inputField, .inputPassword {
+
     --li-margin: 7px;
-    width: 300px;
+    width: 100%;
     height: 50px;
     position: relative;
-    border-radius: 4px;
-    background-color: var(--color-background);
+    border-radius: 2px;
+    background-color: black;
     border: 1px solid var(--color-border);
     overflow: hidden;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .inputField.focused, .inputPassword.focused {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 10px var(--color-border);
+
+    border-color: var(--color-terciary);
+    box-shadow: 0 0 10px var(--color-terciary);
+    color: var(--color-terciary);
 }
 
 /* Estilo del botón dentro de los campos de input */
 .inputField > button, .inputPassword > button {
+
     position: absolute;
     right: var(--li-margin);
     top: 0;
@@ -76,7 +74,7 @@
 }
 
 .inputField > button:hover, .inputPassword > button:hover {
-    color: var(--color-border);
+    color: var(--color-terciary);
 }
 
 /* Estilo de los input fields */
@@ -94,8 +92,9 @@
 }
 
 .inputField > li > input, .inputPassword > li > input {
-    font-size: 1.2rem;
-    width: 100%;
+    font-size: 0.8rem;
+
+    width: 80%;
     height: 100%;
     background-color: transparent;
     outline: none;
@@ -114,20 +113,21 @@
 
 /* Estilo cuando los input fields están enfocados */
 .inputField.focused > li > input::placeholder, .inputPassword.focused > li > input::placeholder {
-    color: var(--color-border);
+    color: var(--color-terciary);
 }
 
 .inputField.focused > li > input, .inputPassword.focused > li > input {
-    color: var(--color-primary);
+    color: var(--color-terciary);
     filter: none;
 }
 
 /* Estilos para el botón de login */
 .login-button {
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: black;
+    width: 100%;
     border: 2px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 2px;
     padding: 16px 32px;
     font-size: 16px;
     font-weight: bold;
@@ -137,13 +137,18 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
+.login-button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
 
 .login-button.loading {
     color: transparent;
 }
 
 .login-button.ready {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: #000;
 }
 

@@ -33,9 +33,11 @@ function NavBar() {
             <div className="logo">
                 <AnimatedText
                     size="50px"
-                    glitchInterval={200}
+                    glitchInterval={100}
                     probability={0.9}
-                    glow
+                    glow={true}
+                    primaryColor="#fff"
+
                 >
                     GameDev
                 </AnimatedText>

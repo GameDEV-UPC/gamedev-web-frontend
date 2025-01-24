@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import MyStats from './pages/MyStats';
 import About from './pages/About';
 import Login from './pages/Login';
-import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp.tsx';
 import './styles/styles.css';
 import Presentation from './pages/Presentation';
 import AnimatedBackground from "./components/AnimatedBackground";
@@ -17,8 +17,13 @@ function App() {
     return (
         <AuthProvider>
             <Router>
-                <AnimatedBackground />
-                <MainContent />
+                <div className="app-container">
+                    {/* Fondo animado */}
+                    <AnimatedBackground />
+
+                    {/* Contenido principal */}
+                    <MainContent />
+                </div>
             </Router>
         </AuthProvider>
     );
@@ -40,7 +45,7 @@ function MainContent() {
                 {/* Rutas públicas */}
                 <Route path="/home" element={<Presentation />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
 
                 {/* Rutas protegidas */}
                 <Route

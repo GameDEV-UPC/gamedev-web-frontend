@@ -1,22 +1,4 @@
-/* Variables de Colores */
-:root {
-    --color-primary: #00ffff; /* Color principal (Cian) */
-    --color-background: #020024; /* Fondo oscuro */
-    --color-text: #ffffff; /* Color de texto */
-    --color-secondary: #55ff00; /* Color secundario */
-    --color-card-background: #333333; /* Fondo de las tarjetas */
-    --color-glow: rgba(0, 255, 255, 0.5); /* Glow del hover */
-    --transition-duration: 0.3s; /* Duración de la transición */
-}
 
-/* Estilos generales del body */
-body {
-    background: radial-gradient(circle, var(--color-background), #001635, #00274a);
-    font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
 
 /* General container */
 .about-container {
@@ -28,6 +10,7 @@ body {
 }
 
 .about-container > .description {
+    font-family: var(--text-font);
     margin-top: 20px;
     font-size: 1.2rem;
     line-height: 1.8;
@@ -36,11 +19,20 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
+.description {
+    font-family: var(--text-font);
+    margin-top: 20px;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* Animaciones */
 .fade-in {
     opacity: 0;
-    animation: fadeIn var(--transition-duration) forwards;
+    animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
@@ -73,17 +65,20 @@ body {
 }
 
 .member-card {
+    font-family: var(--text-font);
+    font-size: 0.7rem;
     width: 200px;
-    background: var(--color-card-background);
+    background: var(--color-secondary);
     padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    border: white solid 1px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .member-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px var(--color-glow);
+    border-radius: 2px;
+    border: white solid 1px;
 }
 
 .member-image {
@@ -101,10 +96,10 @@ body {
 .switch-button {
     padding: 15px 50px;
     border: 2px solid var(--color-primary);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-family: var(--text-font);
     color: var(--color-text);
-    background: transparent;
-    box-shadow: 0 0 15px var(--color-primary);
+    background: var(--color-secondary);
     cursor: pointer;
     overflow: hidden;
     transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
@@ -119,8 +114,7 @@ body {
 }
 
 .switch-button:hover {
-    background-color: transparent;
-    box-shadow: 0 0 30px var(--color-secondary);
+    background-color: var(--color-secondary);
     color: white;
 }
 
@@ -131,8 +125,8 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--color-secondary);
-    color: #000;
+    background: var(--color-primary);
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,12 +151,13 @@ body {
 
     .description {
         font-size: 1rem;
+
     }
 
     .switch-button {
         font-size: 1.2rem;
         padding: 10px 40px;
-        width: auto;
+        margin: 20px;
     }
 
     .member-card {

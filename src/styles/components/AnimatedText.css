@@ -1,15 +1,17 @@
 .animated-text {
-    font-family: "VT323", monospace;
+    font-family: var(--text-font);
+    font-size: inherit;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-align: center;
     position: relative;
     padding: 10px; /* Añade espacio para el shadow */
-    display: inline-block;
+
 }
 
 /* Clases de glitch */
 .glitch-char {
+
     display: inline-block;
     animation: glitch-effect 0.2s ease-in-out infinite alternate;
 }

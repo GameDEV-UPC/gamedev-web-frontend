@@ -1,0 +1,65 @@
+// Colores personalizados de tu web con tonos más oscuros
+$nodeStreak: rgba(255, 255, 255, 0.37); // Color para la luz neón
+$visualDistortionZapper: 360px; // Distorsión visual
+$nanoVelocity: 20s; // Velocidad de la animación más lenta para suavizar el movimiento
+$backgroundSize: 100px; // Tamaño de las rayas más grandes para suavizar el movimiento
+
+
+.wrap{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    perspective: $visualDistortionZapper;
+    perspective-origin: 50% 50%;
+}
+// Animación de las capas flotantes
+
+.bottom-plane {
+    overflow: hidden;
+    width:  100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image:
+            linear-gradient($nodeStreak 2px, transparent 2px),
+            linear-gradient(to right, $nodeStreak 2px, transparent 2px);
+    background-size: $backgroundSize $backgroundSize, $backgroundSize $backgroundSize;
+    background-position: -1px -1px, -1px 0px;
+    transform: rotateX(0deg);
+    animation: planeMoveTop $nanoVelocity infinite linear;
+}
+.bottom-plane {
+    transform: rotateX(0deg);
+    animation: planeMoveBot $nanoVelocity infinite linear;
+}
+
+@keyframes planeMoveBot {
+    0%{
+        background-position: 200px 200px, 200px 200px;
+    }
+    50%{
+        background-position: 0px 0px, 0px 0px;
+    }
+    100%{
+        background-position: 200px 200px, 200px 200px;
+    }
+}
+@media (max-width: 768px) {
+    .wrap {
+        perspective: $visualDistortionZapper - 150;
+    }
+    .bottom-plane {
+        background-size: calc($backgroundSize / 2) calc($backgroundSize / 2), calc($backgroundSize / 2) calc($backgroundSize / 2);
+    }
+}
+@media (max-height: 350px) {
+    .wrap {
+        perspective: $visualDistortionZapper - 150;
+    }
+    .bottom-plane {
+        background-size: calc($backgroundSize / 2) calc($backgroundSize / 2), calc($backgroundSize / 2) calc($backgroundSize / 2);
+    }
+}

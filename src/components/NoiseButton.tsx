@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
-import "../styles/components/NoiseButton.css";
+import "../styles/components/NavBar.css";
 
 interface Option {
     value: string;

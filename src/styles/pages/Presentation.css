@@ -1,14 +1,3 @@
-:root {
-    --color-text: #ffffff;
-    --color-primary: #00fd97;
-    --color-border: #528d99;
-    --background-color: #272727;
-    --button-hover-color: #0f0c29;
-    --text-glow-color: rgba(0, 255, 153, 1);
-    --svg-text-shadow: 0 0 10px rgba(0, 255, 153, 0.8), 0 0 20px rgba(0, 255, 153, 0.6), 0 0 30px rgba(0, 255, 153, 0.4);
-    --svg-text-glow: rgba(0, 255, 153, 0.8);
-    --svg-font-size: 120px;
-}
 
 /* Base animation */
 @property --angle {
@@ -42,7 +31,7 @@
     100% {
         stroke-dasharray: 500 0;
         stroke-dashoffset: -500;
-        fill: rgba(0, 255, 153, 0.3);
+        fill: white;
     }
 }
 
@@ -63,6 +52,8 @@
     width: 100vw;
     padding: 0;
     margin: 0;
+
+
 }
 
 /* Title */
@@ -75,6 +66,7 @@
 
 /* Button Container */
 .button-container {
+    width: 50%;
     position: absolute;
     bottom: 30%;
     display: flex;
@@ -107,7 +99,7 @@
 
 /* SVG */
 svg {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--text-font);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -115,22 +107,24 @@ svg {
 }
 
 svg text {
+
     letter-spacing: 50px;
     text-transform: uppercase;
     font-size: var(--svg-font-size);
     fill: transparent;
-    stroke: var(--color-primary);
+
     stroke-width: 3;
     text-shadow: var(--svg-text-shadow);
-    animation: textGlow 5s forwards, strokeAnimation 5s forwards;
+    animation: textGlow 6s forwards ease-in-out, strokeAnimation 6s forwards ease-in-out;
 }
 
-/* Neon text glow animation */
+
 @keyframes textGlow {
-    0% { text-shadow: var(--svg-text-shadow); fill: transparent; }
-    50% { text-shadow: 0 0 20px var(--text-glow-color), 0 0 40px var(--text-glow-color), 0 0 60px var(--text-glow-color); fill: var(--text-glow-color); }
-    100% { text-shadow: var(--svg-text-shadow); fill: transparent; }
+    0% { text-shadow: var(--color-terciary); fill: var(--color-terciary); stroke: var(--color-terciary); }
+    50% { text-shadow: 0 0 20px  var(--color-terciary); fill: var(--color-terciary); stroke: var(--color-terciary); }
+    100% { text-shadow: var(--svg-text-shadow); fill: white; stroke: white; }
 }
+
 
 /* Animated tspan for each letter */
 svg text tspan {
@@ -145,13 +139,12 @@ svg text tspan:nth-child(2) { animation-delay: 0.3s; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    svg text {
-        font-size: 20vh;
-    }
 
-    svg text tspan {
-        transform: translateX(100px);
+    .presentation-container{
+        width: auto;
+        height: 50ch;
     }
-
-    svg text tspan:nth-child(2) { animation-delay: 0.2s; }
+    .button-container{
+        display: grid;
+    }
 }

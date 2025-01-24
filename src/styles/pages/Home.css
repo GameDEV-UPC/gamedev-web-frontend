@@ -1,12 +1,3 @@
-/* Variables de Colores */
-:root {
-    --color-primary: #00ffff; /* Color principal (Cian) */
-    --color-background: #1f1f1f; /* Fondo oscuro */
-    --color-text: #ffffff; /* Color de texto */
-    --color-placeholder: #a0a0a0; /* Color del texto de los placeholders */
-    --color-card-background: #333333; /* Fondo de las tarjetas */
-    --color-shadow: rgba(0, 0, 0, 0.5); /* Sombra de las tarjetas */
-}
 
 /* Estilo de la página principal (Home) */
 .home-container {
@@ -16,10 +7,11 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
 }
 
-.home-title {
-    font-size: 36px;
+.leaderboard-header {
+    font-size: 2rem;
     color: var(--color-primary);
     margin-bottom: 20px;
 }
@@ -44,6 +36,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+
 }
 
 /* Estilo de los ítems del leaderboard */
@@ -52,39 +45,38 @@
     flex-direction: row;
     align-items: center;
     padding: 10px;
-    background: var(--color-card-background);
+    background: var(--color-secondary);
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    font-family: var(--text-font);
+    font-size: 0.7rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .leaderboard-item:hover {
-    transform: scale(1.01);
-    box-shadow: 0 6px 20px var(--color-shadow);
+    transform: scale(1.02);
 }
 
 /* Estilo de la imagen de perfil en los ítems */
 .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+
+    width: 90px;
+    height: 90px;
+    border-radius: 2px;
     margin-right: 15px;
+    margin-top: 20px;
 }
 
 /* Estilo del texto de los usuarios */
 .user-info {
     text-align: left;
     color: var(--color-text);
+
 }
 
-.user-info h3 {
-    margin: 0;
-    font-size: 22px;
-    color: var(--color-primary);
-}
+
 
 .user-info p {
     margin: 5px 0;
-    font-size: 20px;
+    font-size: 0.7rem;
     color: var(--color-placeholder);
 }

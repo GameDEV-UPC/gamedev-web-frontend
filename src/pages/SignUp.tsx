@@ -6,8 +6,9 @@ import LoginButton from "../components/LoginButton";
 import AnimatedText from "../components/AnimatedText";
 import useFormHandler from "../hooks/useFormHandler";
 import colors from "../styles/colors";
+import Button from "../components/Button.tsx";
 
-function SignIn() {
+function SignUp() {
     const { values, errorMessage, isLoading, setErrorMessage, setIsLoading, handleChange } = useFormHandler({
         fullName: "",
         username: "",
@@ -43,18 +44,19 @@ function SignIn() {
     return (
         <div className="login-page">
             <div className="login-container">
+                <div className="login-title">
                 <AnimatedText
                     size="3rem"
                     primaryColor={colors.primary}
                     glitchColor={colors.secondary}
-                    glitchInterval={300}
-                    probability={0.98}
+                    glitchInterval={150}
+                    probability={0.95}
                     glow={true}
                     glowColor={colors.primary}
                 >
-                    Sign In
+                    Sign Up
                 </AnimatedText>
-
+                </div>
                 <TextField
                     placeholder="Enter your full name"
                     value={values.fullName}
@@ -75,14 +77,16 @@ function SignIn() {
                     onChange={(e) => handleChange("password", e.target.value)}
                 />
 
+
+
+                <Button onClick={handleRegister}  >
+                    {isLoading ? "Loading..." : "Sign Up"}
+                </Button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                <LoginButton onClick={handleRegister} disabled={isLoading} />
-
-                {isLoading && <p className="loading-message">Loading...</p>}
             </div>
         </div>
     );
 }
 
-export default SignIn;
+export default SignUp;

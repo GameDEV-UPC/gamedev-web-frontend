@@ -22,7 +22,7 @@ function Presentation() {
     const renderButtons = () => (
         <div className={`button-container ${showButtons ? "show" : ""}`}>
             <Button onClick={() => handleNavigate("/login")} aria-label="Go to Login Page">LOGIN</Button>
-            <Button onClick={() => handleNavigate("/signin")} aria-label="Go to Sign Up Page">SIGN UP</Button>
+            <Button onClick={() => handleNavigate("/signup")} aria-label="Go to Sign Up Page">SIGN UP</Button>
         </div>
     );
 

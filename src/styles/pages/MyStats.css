@@ -1,13 +1,3 @@
-/* Variables de Colores */
-:root {
-    --color-primary: #00ffff; /* Color principal (Cian) */
-    --color-background: #1f1f1f; /* Fondo oscuro */
-    --color-text: #ffffff; /* Color de texto */
-    --color-placeholder: #a0a0a0; /* Color del texto de los placeholders */
-    --color-card-background: #333333; /* Fondo de las tarjetas */
-    --color-shadow: rgba(0, 0, 0, 0.5); /* Sombra de las tarjetas */
-    --color-secondary: #00ff00; /* Color secundario */
-}
 
 /* Stats container */
 .stats-container {
@@ -17,14 +7,20 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: var(--text-font);
+    font-size: 0.7rem;
 }
 
 /* Profile section adjustment */
 .profile-section {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: white solid 1px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px; /* Space between the image and text */
+    justify-content: left;
+    gap: 80px; /* Space between the image and text */
     margin-bottom: 20px;
     text-align: left;
 }
@@ -41,8 +37,14 @@
 
 .profile-text {
     display: flex;
+
     flex-direction: column;
-    justify-content: center; /* Align text vertically */
+    justify-content: left; /* Align text vertically */
+}
+.profile-user {
+    font-size: 1.5rem;
+    text-align: left;
+
 }
 
 .profile-text h1 {
@@ -54,15 +56,19 @@
     margin: 5px 0;
     color: var(--color-text);
 }
-
+.stat-header {
+    font-size: 1.2rem;
+}
 /* Stats section */
 .stats-section {
-    font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.5);
+
+    background: rgba(0, 0, 0, 0.7);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 2px;
+    border: white solid 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: var(--color-text);
+    font-size: 0.7rem;
 }
 
 .stat-item {
@@ -73,16 +79,16 @@
 
 h2 {
     text-align: center;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
     color: var(--color-text);
 }
 
 /* Games section */
 .games-section {
     font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+    border: white solid 1px;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: var(--color-text);
 }
@@ -94,19 +100,23 @@ h2 {
 }
 
 .game-card {
-    background: var(--color-card-background);
-    border-radius: 10px;
+    background: var(--color-secondary);
+
+    border: white solid 1px;
+    border-radius: 2px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
     color: var(--color-text);
+    font-size: 0.7rem;
 }
 
 .game-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--color-secondary);
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

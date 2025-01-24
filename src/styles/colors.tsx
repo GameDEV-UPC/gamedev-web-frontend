@@ -1,7 +1,7 @@
 // src/styles/colors.tsx
 
 const colors = {
-    primary: "#00fd97",
+    primary: "white",
     secondary: "rgb(104, 169, 101)",
     cardBackground: "rgba(0, 20, 40, 0.85)",
     glowprimary: "rgba(0, 230, 255, 0.7)",

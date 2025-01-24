@@ -14,7 +14,7 @@ interface AnimatedTextProps {
 
 function AnimatedText({
                           children,
-                          size = "2rem",
+
                           primaryColor = "#fff",
                           glitchColor = "#ff0080",
                           glitchInterval = 800,
@@ -44,7 +44,7 @@ function AnimatedText({
         <div
             className="animated-text"
             style={{
-                fontSize: size,
+
                 color: primaryColor,
                 textShadow: glow ? `0 0 10px ${glowColor}` : "none",
             }}

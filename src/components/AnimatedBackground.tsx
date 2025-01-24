@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/components/AnimatedBackground.css";
+import "../styles/components/AnimatedBackground.scss";
 
 function AnimatedBackground({ numLetters = 20 }) {
     const [letters, setLetters] = useState(() => generateLetters(numLetters));
@@ -20,19 +20,11 @@ function AnimatedBackground({ numLetters = 20 }) {
     }, [numLetters]);
 
     return (
-        <div className="backwrap gradient">
-            <div className="back-shapes">
-                {letters.map(({ letter, top, left, rotation, animationDelay }, index) => (
-                    <span
-                        key={index}
-                        className="floating letter"
-                        style={{ top, left, transform: `rotate(${rotation})`, animationDelay }}
-                    >
-                        {letter}
-                    </span>
-                ))}
+
+            <div className="wrap">
+                <div className="bottom-plane"></div>
             </div>
-        </div>
+
     );
 }
 

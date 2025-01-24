@@ -19,14 +19,14 @@ function About() {
                 primaryColor={colors.primary}
                 glitchColor={colors.glowsecondary}
                 glow={true}
-                glowColor={colors.glowprimary}
+
                 glitchInterval={100}
                 probability={0.97}
 
             >
                 About Our Association
             </AnimatedText>
-            <section className="description">
+            <section className="description fade-in">
                 <p>
                     We are a group of passionate students from the EPSEVG, dedicated to creating
                     innovative video games and developing a state-of-the-art graphics engine.
@@ -49,14 +49,13 @@ function About() {
                     primaryColor={colors.primary}
                     glitchColor={colors.glowsecondary}
                     glow={true}
-                    glowColor={colors.glowprimary}
                     glitchInterval={100}
                     probability={0.97}
 
                 >
                     {activeSection === "engine" ? "Engine Team" : "Video Games Team"}
                 </AnimatedText>
-                <p className="description fade-in">
+                <p className={"description fade-in"}>
                     {activeSection === "engine"
                         ? "Our Engine team is dedicated to developing a cutting-edge graphics engine using C++. They focus on optimizing performance and creating realistic visual effects."
                         : "Our Video Games team specializes in crafting engaging and innovative games using Unity. They combine storytelling, gameplay mechanics, and creativity to deliver unforgettable experiences."}

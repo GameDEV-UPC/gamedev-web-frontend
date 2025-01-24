@@ -13,17 +13,19 @@ function Leaderboard({ users }: LeaderboardProps) {
 
     return (
         <div className="leaderboard-container">
+            <div className={"leaderboard-header"}>
             <AnimatedText
-                size="2rem"
+
                 primaryColor={colors.primary}
                 glitchColor={colors.glowsecondary}
                 glow={true}
-                glowColor={colors.glowprimary}
+
                 glitchInterval={100}
                 probability={0.97}
             >
                 Leaderboard
             </AnimatedText>
+            </div>
             <div className="leaderboard">
                 {sortedUsers.map((user, index) => (
                     <LeaderboardItem
@@ -58,7 +60,15 @@ function LeaderboardItem({ rank, username, profilePic, score, playTime }: Leader
                 className="profile-pic"
             />
             <div className="user-info">
-                <h3>{username}</h3>
+                <AnimatedText
+                    primaryColor={colors.primary}
+                    glitchColor={colors.secondary}
+                    glitchInterval={100}
+                    probability={0.97}
+
+                >
+                    {username}
+                </AnimatedText>
                 <p>Total Score: {score}</p>
                 <p>Total Play Time: {playTime} minutes</p>
             </div>

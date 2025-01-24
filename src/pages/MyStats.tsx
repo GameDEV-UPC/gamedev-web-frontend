@@ -3,6 +3,7 @@ import "../styles/pages/MyStats.css";
 import { User } from "../utils/User";
 import AnimatedText from "../components/AnimatedText.tsx";
 import colors from "../styles/colors.tsx";
+import {Decimation} from "chart.js";
 
 // Falso Usuario para pruebas
 const fakeUser = new User(
@@ -49,17 +50,18 @@ function ProfileSection({ user }: { user: User }) {
                 className="profile-picture"
             />
             <div className="profile-text">
+                <div className="profile-user">
                 <AnimatedText
                     size="2rem"
                     primaryColor={colors.primary}
                     glitchColor={colors.glowsecondary}
                     glow={true}
-                    glowColor={colors.glowprimary}
                     glitchInterval={100}
                     probability={0.97}
                 >
                     {user.username}
                 </AnimatedText>
+                </div>
                 <p>{`${user.firstName} ${user.lastName}`}</p>
                 <p>{user.email}</p>
             </div>
@@ -78,17 +80,19 @@ function StatisticsSection({
 }) {
     return (
         <div className="stats-section">
+            <div className="stat-header">
             <AnimatedText
                 size="2rem"
                 primaryColor={colors.primary}
                 glitchColor={colors.glowsecondary}
                 glow={true}
-                glowColor={colors.glowprimary}
+
                 glitchInterval={100}
                 probability={0.97}
             >
                 Statistics
             </AnimatedText>
+            </div>
             <div className="stat-item">
                 <span>Total Play Time:</span>
                 <span>{totalPlayTime} mins</span>
@@ -115,7 +119,7 @@ function GamesSection({ games }: { games: { gameName: string; maxScore: number; 
                 primaryColor={colors.primary}
                 glitchColor={colors.glowsecondary}
                 glow={true}
-                glowColor={colors.glowprimary}
+
                 glitchInterval={100}
                 probability={0.97}
             >
@@ -124,7 +128,16 @@ function GamesSection({ games }: { games: { gameName: string; maxScore: number; 
             <div className="games-grid">
                 {games.map((game, index) => (
                     <div key={index} className="game-card">
-                        <h3>{game.gameName}</h3>
+                        <AnimatedText
+                            primaryColor={colors.primary}
+                            glitchColor={colors.glowsecondary}
+                            glow={true}
+
+                            glitchInterval={100}
+                            probability={0.97}
+                        >
+                            {game.gameName}
+                        </AnimatedText>
                         <p>Max Score: {game.maxScore}</p>
                         <p>Time Played: {game.timePlayed} mins</p>
                     </div>
