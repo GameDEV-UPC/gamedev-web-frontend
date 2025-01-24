@@ -155,23 +155,28 @@ span {
         background-position: 0% 50%;
     }
 }
-@media (max-width: 768px)  {
+@media (max-width: 1068px)  {
     .radio-btn-group{
-        width: 50px;
-        height: 30px;
+        width: 15%;
+        height: 50px;
         display: flex;
         position: relative;
+        justify-content: center;
+
 
     }
     .container{
-
+        width: 80%;
+        display: contents;
     }
     .logo{
-        width: 1000px;
+        width: 200px;
         font-size: 1rem;
+        position: relative;
     }
     label{
         font-size: 8px;
+        padding: 10px;
     }
 
 
