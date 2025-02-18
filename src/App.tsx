@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './components/AuthProvider';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './components/AuthProvider';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Navbar from './components/NavBar';
 import Home from './pages/Home';
@@ -72,9 +72,19 @@ function MainContent() {
                         </ProtectedRoute>
                     }
                 />
+
+                {/* Ruta comodín */}
+                <Route path="*" element={<RedirectToProperPage />} />
             </Routes>
         </>
     );
+}
+
+// Componente para manejar redirecciones según autenticación
+function RedirectToProperPage() {
+    const { isAuthenticated } = useAuth(); // Supone que `useAuth` tiene `isAuthenticated`
+
+    return isAuthenticated ? <Navigate to="/leaderboard" replace /> : <Navigate to="/home" replace />;
 }
 
 export default App;
